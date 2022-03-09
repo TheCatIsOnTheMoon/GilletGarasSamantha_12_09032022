@@ -1,0 +1,25 @@
+/* colors variables--------------------------------------------------------------------------*/
+:root {
+    --color-primary: #FF0101;
+}
+
+/* base ---------------------------------------------------------------------------*/
+* {
+    box-sizing: border-box !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    padding: 0;
+    font-family: Roboto, "DM Sans", sans-serif;
+}
+
+/* main, header {
+    max-width: 1400px;
+    margin: auto;
+} */
+
