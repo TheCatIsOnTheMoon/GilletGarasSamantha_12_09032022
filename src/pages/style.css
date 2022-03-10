@@ -3,7 +3,11 @@
 }
 
 #content_box {
-    margin: 60px 90px 88px 109px;
+    margin: 68px 90px 88px 109px;
+}
+
+#info_box {
+    display: flex;
 }
 
 #graphs_box {
@@ -11,6 +15,3 @@
     justify-content: space-between;
 }
 
-#info_box {
-    display: flex;
-}

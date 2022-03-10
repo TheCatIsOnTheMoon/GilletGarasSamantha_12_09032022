@@ -16,21 +16,21 @@ function App() {
 
       <div id="main_box">
         <SideBar />
+
         <div id="content_box">
-          <div id="hello_box">
-            <Hello />
-          </div>
+          <Hello />
+
           <div id="info_box">
             <div id="details_box">
-              <div id="dailyactivities_box">
-                <DailyActivities />
-              </div>
+              <DailyActivities />
+
               <div id="graphs_box">
                 <Times />
                 <Pentagraph />
                 <Score />
               </div>
             </div>
+
             <div id="siderecap_box">
               <SideRecap />
             </div>
