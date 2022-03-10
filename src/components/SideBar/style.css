@@ -1,0 +1,40 @@
+#side_bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 117px;
+  background: #020203;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#side_nav {
+  padding-top: 256px;
+}
+
+#side_nav li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 64px;
+  width: 64px;
+  border-radius: 6px;
+  margin: 0 auto 20px auto;
+
+  background: white;
+}
+
+#side_nav img {
+  height: 32px;
+}
+
+#side_copyright {
+  font-size: 12px;
+  line-height: 24px;
+
+  color: white;
+  white-space: nowrap;
+
+  transform: rotate(-90deg);
+  margin: 302px 0 150px 0;
+}
