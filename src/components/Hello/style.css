@@ -1,5 +1,16 @@
-#hello {
-    height: 234px;
-    width: 100%;
-    background-color: blue;
+#hello_name {
+  font-size: 48px;
+  line-height: 24px;
+  padding-bottom: 41px;
+}
+
+#hello_name span {
+  color: #ff0000;
+}
+
+#hello_congrats {
+    font-weight: 400;
+font-size: 18px;
+line-height: 24px;
+padding-bottom: 77px;
 }
