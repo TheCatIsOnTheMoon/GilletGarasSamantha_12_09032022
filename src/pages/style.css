@@ -1,0 +1,12 @@
+#main_box {
+    display: flex;
+}
+
+#graphs_box {
+    display: flex;
+    justify-content: space-between;
+}
+
+#info_box {
+    display: flex;
+}
