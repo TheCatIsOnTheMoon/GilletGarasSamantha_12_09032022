@@ -1,7 +1,3 @@
-#main_box {
-    display: flex;
-}
-
 #content_box {
     margin: 68px 90px 88px 109px;
 }
@@ -14,4 +10,3 @@
     display: flex;
     justify-content: space-between;
 }
-
