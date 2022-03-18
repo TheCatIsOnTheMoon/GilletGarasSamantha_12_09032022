@@ -5,7 +5,7 @@ import swim from './assets/swim.svg';
 import bike from './assets/bike.svg';
 import weight from './assets/weight.svg';
 
-function SideBar() {
+function LeftSideBar() {
   return (
     <div id="side_bar">
       <ul id="side_nav">
@@ -29,4 +29,4 @@ function SideBar() {
   );
 }
 
-export default SideBar;
+export default LeftSideBar;

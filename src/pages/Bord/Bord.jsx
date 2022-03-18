@@ -5,7 +5,7 @@ import DailyActivities from '../../components/DailyActivities/DailyActivities';
 import Times from '../../components/Times/Times';
 import Pentagraph from '../../components/Pentagraph/Pentagraph';
 import Score from '../../components/Score/Score';
-import SideRecap from '../../components/SideRecap/SideRecap';
+import RightSideRecap from '../../components/RightSideRecap/RightSideRecap';
 
 function Bord() {
   return (
@@ -25,7 +25,7 @@ function Bord() {
           </div>
 
           <div id="siderecap_box">
-            <SideRecap />
+            <RightSideRecap />
           </div>
         </div>
       </div>
