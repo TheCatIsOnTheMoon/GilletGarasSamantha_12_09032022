@@ -1,11 +1,11 @@
 import './style.css';
 
-import ProfileBar from '../../components/ProfileBar';
-import DailyActivities from '../../components/DailyActivities';
-import Times from '../../components/Times';
-import Pentagraph from '../../components/Pentagraph';
-import Score from '../../components/Score';
-import SideRecap from '../../components/SideRecap';
+import ProfileBar from '../../components/ProfileBar/ProfileBar';
+import DailyActivities from '../../components/DailyActivities/DailyActivities';
+import Times from '../../components/Times/Times';
+import Pentagraph from '../../components/Pentagraph/Pentagraph';
+import Score from '../../components/Score/Score';
+import SideRecap from '../../components/SideRecap/SideRecap';
 
 function Bord() {
   return (

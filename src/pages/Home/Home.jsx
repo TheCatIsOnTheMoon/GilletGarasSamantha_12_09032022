@@ -1,7 +1,7 @@
 import './style.css';
 
-import Header from '../../components/Header';
-import SideBar from '../../components/SideBar';
+import Header from '../../components/Header/Header';
+import SideBar from '../../components/SideBar/SideBar';
 import Bord from '../Bord/Bord';
 
 function Home() {

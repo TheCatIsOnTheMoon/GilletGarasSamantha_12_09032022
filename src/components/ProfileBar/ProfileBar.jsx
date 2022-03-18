@@ -1,7 +1,7 @@
 import './style.css';
 import { MAIN_DATA_URL } from '../../constants';
-import { useFetch } from '../../Hooks/FetchData';
-import Hello from '../Hello';
+import { useFetch } from '../../Hooks/FetchData/FetchData';
+import Hello from '../Hello/Hello';
 
 function ProfileBar() {
   const { data, isLoading, error } = useFetch(MAIN_DATA_URL);
