@@ -1,6 +1,6 @@
 import './style.css';
 
-import Hello from '../../components/Hello';
+import ProfileBar from '../../components/ProfileBar';
 import DailyActivities from '../../components/DailyActivities';
 import Times from '../../components/Times';
 import Pentagraph from '../../components/Pentagraph';
@@ -11,7 +11,7 @@ function Bord() {
   return (
     <>
       <div id="content_box">
-        <Hello />
+        <ProfileBar />
 
         <div id="info_box">
           <div id="details_box">

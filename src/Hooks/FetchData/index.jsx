@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-// import {
-//   BASE_URL,
-//   userID,
-//   MAIN_DATA_URL,
-//   ACTIVITY_DATA_URL,
-//   SESSIONS_DATA_URL,
-//   PERF_DATA_URL,
-// } from '../../constants';
+
+/**
+ * If the URL is defined, fetch the data from the URL and set the data to the response
+ * @param {String} URL
+ * @returns {Object}  {data, isDataLoading, isError}
+ */
 
 export function useFetch(URL) {
   const [data, setData] = useState({});
