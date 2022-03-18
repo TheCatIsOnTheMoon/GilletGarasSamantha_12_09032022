@@ -1,6 +1,7 @@
 #score_graph {
   position: relative;
   background: #FBFBFB;
+  margin-right: 15px;
 }
 
 #score_title {

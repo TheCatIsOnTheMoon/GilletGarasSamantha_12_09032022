@@ -13,7 +13,7 @@ function BarGraph({ data }) {
       data={barData}
       margin={{
         top: 5,
-        right: 30,
+        right: 0,
         left: 20,
         bottom: 5,
       }}

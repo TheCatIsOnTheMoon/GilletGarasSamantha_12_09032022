@@ -15,7 +15,7 @@ function Score() {
   if (error || !data) {
     return <span>Error</span>;
   }
-  MAIN_DATA && console.log('MAIN_DATA 3 :', MAIN_DATA); //OK
+  // MAIN_DATA && console.log('MAIN_DATA 3 :', MAIN_DATA); //OK
   return (
     <div id="score">
       <ScoreChart score={MAIN_DATA.data.todayScore} />
