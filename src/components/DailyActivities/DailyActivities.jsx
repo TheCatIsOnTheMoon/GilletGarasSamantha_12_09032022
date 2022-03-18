@@ -1,14 +1,37 @@
 import './style.css';
-// import { MAIN_DATA_URL } from '../../constants';
-// import { useFetch } from '../../Hooks/FetchData';
-// import BarGraph from '../Hello/Hello';
+import { ACTIVITY_DATA_URL } from '../../constants';
+import { useFetch } from '../../Hooks/FetchData/FetchData';
+import BarGraph from '../BarGraph/BarGraph';
 
 function DailyActivities() {
-  // const { data, isLoading, error } = useFetch(MAIN_DATA_URL);
-  // console.log('MAIN_DATA 1 :', data); // OK
-  // const MAIN_DATA = data;
-  // console.log('MAIN_DATA 2 :', MAIN_DATA); //OK
-  return <div id="dailyactivities"></div>;
+  const { data, isLoading, error } = useFetch(ACTIVITY_DATA_URL);
+  // console.log('ACTIVITY_DATA 1 :', data); // OK
+  const ACTIVITY_DATA = data;
+  // console.log('ACTIVITY_DATA 2 :', ACTIVITY_DATA); //OK
+
+  if (isLoading) {
+    return <span>Loading ...</span>;
+  }
+  if (error || !data) {
+    return <span>Error</span>;
+  }
+  // ACTIVITY_DATA && console.log('ACTIVITY_DATA 3 :', ACTIVITY_DATA); //OK
+
+  return (
+    <div id="dailyactivities">
+      <div id="dailyactivities_title">
+        <p>Activité quotidienne</p>
+        <div id="dailyactivities_legend">
+          <div className="circleBase circleBlack"></div>
+          <p>Poids (kg)</p>
+          <div className="circleBase circleRed"></div>
+          <p>Calories brûlées (kCal)</p>
+        </div>
+      </div>
+
+      <BarGraph data={ACTIVITY_DATA.data.sessions} />
+    </div>
+  );
 }
 
 export default DailyActivities;

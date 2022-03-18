@@ -1,5 +1,35 @@
-#dailyactivities {
-    height: 320px;
-    width: 835px;
-    background-color: forestgreen;
+#dailyactivities_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 20px;
+}
+
+#dailyactivities_title p {
+  font-size: 15px;
+  line-height: 24px;
+}
+
+#dailyactivities_legend {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 14px;
+  line-height: 24px;
+  color: #74798c;
+}
+
+.circleBase {
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  margin: 0 12px;
+}
+
+.circleBlack {
+  background: #282d30;
+}
+
+.circleRed {
+  background: #e60000;
 }
