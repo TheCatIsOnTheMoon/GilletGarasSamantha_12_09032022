@@ -14,23 +14,13 @@ function Daily() {
     return <span>Error</span>;
   }
   // ACTIVITY_DATA && console.log('ACTIVITY_DATA 3 :', ACTIVITY_DATA); //OK
-
   const activityData = ACTIVITY_DATA.data.sessions;
 
-  /**
-   * Given a date string,
-   * remove the year and month and return the rest of the string
-   * @returns The date without the year, month and any leading 0.
-   */
   function formatDate(date) {
     let newDate = date.substring(8);
     return newDate.replace(/^0+/, '');
   }
 
-  /* Mapping the data to a new object
-   * with the day, kilogram and calories
-   * in order to format the values of day
-   */
   const newData = activityData.map((item) => {
     return {
       day: formatDate(item.day),

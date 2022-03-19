@@ -39,7 +39,7 @@ function DailyChart({ data }) {
         domain={['dataMin - 50', 'dataMax + 50']}
         axisLine={false}
         tickLine={false}
-        tickMargin={false}
+        tickMargin={0}
         tick={false}
         hide={true}
       />
