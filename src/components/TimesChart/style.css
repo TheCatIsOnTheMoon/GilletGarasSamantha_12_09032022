@@ -13,3 +13,16 @@
 
   padding: 30px 29px;
 }
+
+#timeschart_tooltip {
+  height: 25px;
+  width: 39px;
+  background: #ffffff;
+}
+
+#timeschart_tooltip_text {
+  font-size: 8px;
+  line-height: 24px;
+  text-align: center;
+  color: #000000;
+}
