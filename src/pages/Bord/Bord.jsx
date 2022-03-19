@@ -3,7 +3,7 @@ import './style.css';
 import ProfileBar from '../../components/ProfileBar/ProfileBar';
 import DailyActivities from '../../components/DailyActivities/DailyActivities';
 import Times from '../../components/Times/Times';
-import Pentagraph from '../../components/Pentagraph/Pentagraph';
+import Perfs from '../../components/Perfs/Perfs';
 import Score from '../../components/Score/Score';
 import RightSideRecap from '../../components/RightSideRecap/RightSideRecap';
 
@@ -19,7 +19,7 @@ function Bord() {
 
             <div id="graphs_box">
               <Times />
-              <Pentagraph />
+              <Perfs />
               <Score />
             </div>
           </div>
