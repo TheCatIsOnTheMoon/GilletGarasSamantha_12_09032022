@@ -14,9 +14,12 @@ function Score() {
     return <span>Error</span>;
   }
   // MAIN_DATA && console.log('MAIN_DATA 3 :', MAIN_DATA); //OK
+
+  const scoreData = MAIN_DATA.data.todayScore || MAIN_DATA.data.score;
+
   return (
     <div id="score">
-      <ScoreChart score={MAIN_DATA.data.todayScore} />
+      <ScoreChart score={scoreData} />
     </div>
   );
 }

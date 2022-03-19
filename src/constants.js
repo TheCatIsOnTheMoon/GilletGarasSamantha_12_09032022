@@ -1,6 +1,6 @@
 export const BASE_URL = `http://localhost:3000/user/`;
 
-export const userID = 12;
+export const userID = 18;
 // use user ID 12 or 18
 
 export const MAIN_DATA_URL = BASE_URL + `${userID}`;
