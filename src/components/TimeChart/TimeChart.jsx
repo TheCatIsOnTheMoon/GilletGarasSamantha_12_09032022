@@ -44,7 +44,7 @@ function TimeChart({ data }) {
 }
 
 TimeChart.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.array,
 };
 
 export default TimeChart;

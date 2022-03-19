@@ -1,7 +1,9 @@
-import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 import './style.css';
+import PropTypes from 'prop-types';
+import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 
 function ScoreChart({ score }) {
+  // console.log(score); // ok
   const data = [
     {
       name: 'baseScore',
@@ -49,5 +51,9 @@ function ScoreChart({ score }) {
     </div>
   );
 }
+
+ScoreChart.propTypes = {
+  score: PropTypes.number,
+};
 
 export default ScoreChart;
