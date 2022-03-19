@@ -1,12 +1,16 @@
 #content_box {
-    margin: 68px 90px 88px 109px;
+  margin: 68px 90px 88px 109px;
 }
 
 #info_box {
-    display: flex;
+  display: flex;
+}
+
+#details_box {
+  margin: 0 20px 0 0;
 }
 
 #graphs_box {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }

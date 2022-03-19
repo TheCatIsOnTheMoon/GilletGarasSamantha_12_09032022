@@ -9,8 +9,8 @@ function DailyChart({ data }) {
 
   return (
     <BarChart
-      width={870}
-      height={300}
+      width={835}
+      height={320}
       data={barData}
       margin={{
         top: 5,
