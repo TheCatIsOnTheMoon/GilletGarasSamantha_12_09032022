@@ -1,8 +1,8 @@
+import './style.css';
 import PropTypes from 'prop-types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 
 function DailyChart({ data }) {
-  // console.log('data sessions :', data); //OK
   const barData = data.map((element, index) => {
     return element;
   });
@@ -31,7 +31,7 @@ function DailyChart({ data }) {
         tickMargin={20}
         tick={{ stroke: '#9B9EAC' }}
       />
-      <Tooltip />
+      <Tooltip content={<CustomTooltip />} />
       <Bar
         dataKey="kilogram"
         fill="#282D30"
@@ -47,6 +47,20 @@ function DailyChart({ data }) {
     </BarChart>
   );
 }
+
+const CustomTooltip = ({ payload }) => {
+  if (payload && payload.length) {
+    return (
+      <div id="dailychart_tooltip">
+        <p id="dailychart_tooltip_text">
+          {payload[0].value} Kg <br />
+          {payload[1].value} Kcal
+        </p>
+      </div>
+    );
+  }
+  return null;
+};
 
 DailyChart.propTypes = {
   data: PropTypes.array,

@@ -1,0 +1,15 @@
+#dailychart_tooltip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 63px;
+  width: 39px;
+  background: #e60000;
+}
+
+#dailychart_tooltip_text {
+  font-size: 8px;
+  line-height: 24px;
+  text-align: center;
+  color: #ffffff;
+}
