@@ -10,8 +10,6 @@ import {
 } from 'recharts';
 
 function TimeChart({ data }) {
-  // console.log(data); // OK Array.
-
   return (
     <div id="lineChart">
       <p id="lineChart_title">
@@ -43,6 +41,10 @@ function TimeChart({ data }) {
   );
 }
 
+/* Telling React that the `TimeChart` component
+ * will receive one props: `data`
+ * that needs to be an array.
+ */
 TimeChart.propTypes = {
   data: PropTypes.array,
 };
