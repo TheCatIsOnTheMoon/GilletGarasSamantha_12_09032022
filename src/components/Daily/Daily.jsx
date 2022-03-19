@@ -5,9 +5,7 @@ import DailyChart from '../DailyChart/DailyChart';
 
 function Daily() {
   const { data, isLoading, error } = useFetch(ACTIVITY_DATA_URL);
-  // console.log('ACTIVITY_DATA 1 :', data); // OK
   const ACTIVITY_DATA = data;
-  // console.log('ACTIVITY_DATA 2 :', ACTIVITY_DATA); //OK
 
   if (isLoading) {
     return <span>Loading ...</span>;
@@ -16,6 +14,30 @@ function Daily() {
     return <span>Error</span>;
   }
   // ACTIVITY_DATA && console.log('ACTIVITY_DATA 3 :', ACTIVITY_DATA); //OK
+
+  const activityData = ACTIVITY_DATA.data.sessions;
+
+  /**
+   * Given a date string,
+   * remove the year and month and return the rest of the string
+   * @returns The date without the year, month and any leading 0.
+   */
+  function formatDate(date) {
+    let newDate = date.substring(8);
+    return newDate.replace(/^0+/, '');
+  }
+
+  /* Mapping the data to a new object
+   * with the day, kilogram and calories
+   * in order to format the values of day
+   */
+  const newData = activityData.map((item) => {
+    return {
+      day: formatDate(item.day),
+      kilogram: item.kilogram,
+      calories: item.calories,
+    };
+  });
 
   return (
     <div id="dailyactivities">
@@ -29,7 +51,7 @@ function Daily() {
         </div>
       </div>
 
-      <DailyChart data={ACTIVITY_DATA.data.sessions} />
+      <DailyChart data={newData} />
     </div>
   );
 }
