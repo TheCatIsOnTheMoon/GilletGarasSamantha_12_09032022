@@ -29,9 +29,30 @@ function Perfs() {
     };
   });
 
+  const kindsFRtrad = {
+    cardio: 'Cardio',
+    energy: 'Énergie',
+    endurance: 'Endurance',
+    strength: 'Force',
+    speed: 'Vitesse',
+    intensity: 'Intensité',
+  };
+
+  /* Mapping the newData to a new object
+   * with the value and the kind
+   * in order to change the values of kind
+   * by the FR translation
+   */
+  const newFRData = newData.map((item) => {
+    return {
+      value: item.value,
+      kind: kindsFRtrad[item.kind],
+    };
+  });
+
   return (
     <div id="perfs">
-      <PerfsChart data={newData} />
+      <PerfsChart data={newFRData} />
     </div>
   );
 }

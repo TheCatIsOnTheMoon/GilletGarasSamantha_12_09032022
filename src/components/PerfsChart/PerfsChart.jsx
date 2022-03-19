@@ -10,7 +10,7 @@ import {
 
 function PerfsChart({ data }) {
   return (
-    <RadarChart width={240} height={240} data={data}>
+    <RadarChart width={230} height={230} data={data}>
       <PolarGrid radialLines={false} />
       <PolarAngleAxis
         dataKey="kind"
