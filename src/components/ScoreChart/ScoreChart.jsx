@@ -52,6 +52,10 @@ function ScoreChart({ score }) {
   );
 }
 
+/* Telling React that the `ScoreChart` component
+ * will receive one props: `score`
+ * that needs to be a number.
+ */
 ScoreChart.propTypes = {
   score: PropTypes.number,
 };

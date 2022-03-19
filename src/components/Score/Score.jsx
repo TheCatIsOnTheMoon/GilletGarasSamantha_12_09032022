@@ -5,9 +5,7 @@ import { useFetch } from '../../Hooks/FetchData/FetchData';
 
 function Score() {
   const { data, isLoading, error } = useFetch(MAIN_DATA_URL);
-  // console.log('MAIN_DATA 1 :', data); // OK
   const MAIN_DATA = data;
-  // console.log('MAIN_DATA 2 :', MAIN_DATA); //OK
 
   if (isLoading) {
     return <span>Loading ...</span>;
