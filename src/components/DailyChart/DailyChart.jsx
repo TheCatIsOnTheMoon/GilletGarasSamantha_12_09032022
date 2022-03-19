@@ -22,6 +22,7 @@ function DailyChart({ data }) {
       <CartesianGrid sstrokeDasharray="3 3" vertical={false} />
       <XAxis dataKey="day" storke="grey" tickLine={false} tickMargin={10} />
       <YAxis
+        yAxisId="left"
         dataKey="kilogram"
         orientation="right"
         domain={['dataMin - 2', 'dataMax + 1']}
@@ -31,14 +32,27 @@ function DailyChart({ data }) {
         tickMargin={20}
         tick={{ stroke: '#9B9EAC' }}
       />
+      <YAxis
+        yAxisId="right"
+        dataKey="calories"
+        orientation="left"
+        domain={['dataMin - 50', 'dataMax + 50']}
+        axisLine={false}
+        tickLine={false}
+        tickMargin={false}
+        tick={false}
+        hide={true}
+      />
       <Tooltip content={<CustomTooltip />} />
       <Bar
+        yAxisId="left"
         dataKey="kilogram"
         fill="#282D30"
         barSize={7}
         radius={[50, 50, 0, 0]}
       />
       <Bar
+        yAxisId="right"
         dataKey="calories"
         fill="#E60000"
         barSize={7}

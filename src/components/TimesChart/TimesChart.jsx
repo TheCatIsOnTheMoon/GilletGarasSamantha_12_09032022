@@ -36,7 +36,12 @@ function TimesChart({ data }) {
           dy={3}
           dx={0}
         />
-        <YAxis dataKey="sessionLength" hide={true} />
+        <YAxis
+          dataKey="sessionLength"
+          hide={true}
+          domain={['dataMin', 'dataMax + 10']}
+        />
+
         <Tooltip
           payload={data.sessionLength}
           content={<CustomTooltip />}
