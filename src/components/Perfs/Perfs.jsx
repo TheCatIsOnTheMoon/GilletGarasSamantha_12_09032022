@@ -5,9 +5,7 @@ import { useFetch } from '../../Hooks/FetchData/FetchData';
 
 function Perfs() {
   const { data, isLoading, error } = useFetch(PERF_DATA_URL);
-  // console.log('PERF_DATA 1 :', data); // OK
   const PERF_DATA = data;
-  // console.log('PERF_DATA 2 :', PERF_DATA); //OK
 
   if (isLoading) {
     return <span>Loading ...</span>;
@@ -17,9 +15,23 @@ function Perfs() {
   }
   // PERF_DATA && console.log('PERF_DATA 3 :', PERF_DATA); //OK
 
+  const perfdata = PERF_DATA.data.data;
+  const perfLabel = PERF_DATA.data.kind;
+
+  /* Mapping the data to a new object
+   * with the value and the kind
+   * in order to change the values of kind
+   */
+  const newData = perfdata.map((item) => {
+    return {
+      value: item.value,
+      kind: perfLabel[item.kind],
+    };
+  });
+
   return (
     <div id="perfs">
-      <PerfsChart data={PERF_DATA.data.data} kind={PERF_DATA.data.kind} />
+      <PerfsChart data={newData} />
     </div>
   );
 }

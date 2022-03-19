@@ -8,13 +8,16 @@ import {
   PolarRadiusAxis,
 } from 'recharts';
 
-function PerfsChart({ data, kind }) {
-  // console.log('perf data : ', data); // OK
-  // console.log('perf kind : ', kind); // OK
+function PerfsChart({ data }) {
   return (
     <RadarChart width={240} height={240} data={data}>
       <PolarGrid radialLines={false} />
-      <PolarAngleAxis dataKey="kind" stroke="#FFFFFF" tickLine={false} />
+      <PolarAngleAxis
+        dataKey="kind"
+        stroke="#FFFFFF"
+        fontSize={12}
+        tickLine={false}
+      />
       <PolarRadiusAxis
         domain={[0, 300]}
         tick={false}
@@ -26,9 +29,12 @@ function PerfsChart({ data, kind }) {
   );
 }
 
+/* Telling React that the `PerfsChart` component
+ * will receive one props: `data`
+ * that needs to be an array.
+ */
 PerfsChart.propTypes = {
   data: PropTypes.array,
-  kind: PropTypes.object,
 };
 
 export default PerfsChart;
