@@ -1,9 +1,9 @@
 import './style.css';
 import { MAIN_DATA_URL } from '../../constants';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
-import RightDetails from '../RightDetails/RightDetails';
+import RightSideDetails from '../RightSideDetails/RightSideDetails';
 
-function RightSideRecap() {
+function RightSide() {
   const { data, isLoading, error } = useFetch(MAIN_DATA_URL);
   // console.log('MAIN_DATA 1 :', data); // OK
   const MAIN_DATA = data;
@@ -19,7 +19,7 @@ function RightSideRecap() {
   // firstName={MAIN_DATA.data.userInfos.firstName}
   return (
     <div id="siderecap">
-      <RightDetails
+      <RightSideDetails
         calories={MAIN_DATA.data.keyData.calorieCount}
         proteines={MAIN_DATA.data.keyData.proteinCount}
         glucides={MAIN_DATA.data.keyData.carbohydrateCount}
@@ -29,4 +29,4 @@ function RightSideRecap() {
   );
 }
 
-export default RightSideRecap;
+export default RightSide;

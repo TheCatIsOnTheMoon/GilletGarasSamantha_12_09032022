@@ -2,7 +2,7 @@ import './style.css';
 
 import Header from '../../components/Header/Header';
 import LeftSideBar from '../../components/LeftSideBar/LeftSideBar';
-import Bord from '../Bord/Bord';
+import Dashbord from '../Dashbord/Dashbord';
 
 function Home() {
   return (
@@ -11,7 +11,7 @@ function Home() {
 
       <div id="main_box">
         <LeftSideBar />
-        <Bord />
+        <Dashbord />
       </div>
     </>
   );

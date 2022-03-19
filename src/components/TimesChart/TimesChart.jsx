@@ -9,7 +9,7 @@ import {
   Tooltip,
 } from 'recharts';
 
-function TimeChart({ data }) {
+function TimesChart({ data }) {
   return (
     <div id="lineChart">
       <p id="lineChart_title">
@@ -45,8 +45,8 @@ function TimeChart({ data }) {
  * will receive one props: `data`
  * that needs to be an array.
  */
-TimeChart.propTypes = {
+TimesChart.propTypes = {
   data: PropTypes.array,
 };
 
-export default TimeChart;
+export default TimesChart;

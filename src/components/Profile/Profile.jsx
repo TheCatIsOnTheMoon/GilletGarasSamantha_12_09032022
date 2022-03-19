@@ -1,13 +1,11 @@
 import './style.css';
 import { MAIN_DATA_URL } from '../../constants';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
-import Hello from '../Hello/Hello';
+import ProfileContent from '../ProfileContent/ProfileContent';
 
-function ProfileBar() {
+function Profile() {
   const { data, isLoading, error } = useFetch(MAIN_DATA_URL);
-  // console.log('MAIN_DATA 1 :', data); // OK
   const MAIN_DATA = data;
-  // console.log('MAIN_DATA 2 :', MAIN_DATA); //OK
 
   if (isLoading) {
     return <span>Loading ...</span>;
@@ -19,7 +17,7 @@ function ProfileBar() {
 
   return (
     <div id="hello">
-      <Hello firstName={MAIN_DATA.data.userInfos.firstName} />
+      <ProfileContent firstName={MAIN_DATA.data.userInfos.firstName} />
       <p id="hello_congrats">
         Félicitation ! Vous avez explosé vos objectifs hier 👏
       </p>
@@ -27,4 +25,4 @@ function ProfileBar() {
   );
 }
 
-export default ProfileBar;
+export default Profile;

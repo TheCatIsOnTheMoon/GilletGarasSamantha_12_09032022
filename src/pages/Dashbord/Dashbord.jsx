@@ -1,21 +1,21 @@
 import './style.css';
 
-import ProfileBar from '../../components/ProfileBar/ProfileBar';
-import DailyActivities from '../../components/DailyActivities/DailyActivities';
+import Profile from '../../components/Profile/Profile';
+import Daily from '../../components/Daily/Daily';
 import Times from '../../components/Times/Times';
 import Perfs from '../../components/Perfs/Perfs';
 import Score from '../../components/Score/Score';
-import RightSideRecap from '../../components/RightSideRecap/RightSideRecap';
+import RightSide from '../../components/RightSide/RightSide';
 
-function Bord() {
+function Dashbord() {
   return (
     <>
       <div id="content_box">
-        <ProfileBar />
+        <Profile />
 
         <div id="info_box">
           <div id="details_box">
-            <DailyActivities />
+            <Daily />
 
             <div id="graphs_box">
               <Times />
@@ -25,7 +25,7 @@ function Bord() {
           </div>
 
           <div id="siderecap_box">
-            <RightSideRecap />
+            <RightSide />
           </div>
         </div>
       </div>
@@ -33,4 +33,4 @@ function Bord() {
   );
 }
 
-export default Bord;
+export default Dashbord;

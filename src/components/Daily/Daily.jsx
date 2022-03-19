@@ -1,9 +1,9 @@
 import './style.css';
 import { ACTIVITY_DATA_URL } from '../../constants';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
-import BarGraph from '../BarGraph/BarGraph';
+import DailyChart from '../DailyChart/DailyChart';
 
-function DailyActivities() {
+function Daily() {
   const { data, isLoading, error } = useFetch(ACTIVITY_DATA_URL);
   // console.log('ACTIVITY_DATA 1 :', data); // OK
   const ACTIVITY_DATA = data;
@@ -29,9 +29,9 @@ function DailyActivities() {
         </div>
       </div>
 
-      <BarGraph data={ACTIVITY_DATA.data.sessions} />
+      <DailyChart data={ACTIVITY_DATA.data.sessions} />
     </div>
   );
 }
 
-export default DailyActivities;
+export default Daily;

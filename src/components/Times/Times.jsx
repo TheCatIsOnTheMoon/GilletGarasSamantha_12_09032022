@@ -1,7 +1,7 @@
 import './style.css';
 import { SESSIONS_DATA_URL } from '../../constants';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
-import TimeChart from '../TimeChart/TimeChart';
+import TimesChart from '../TimesChart/TimesChart';
 
 function Times() {
   const { data, isLoading, error } = useFetch(SESSIONS_DATA_URL);
@@ -32,7 +32,7 @@ function Times() {
 
   return (
     <div id="times">
-      <TimeChart data={newData} />
+      <TimesChart data={newData} />
     </div>
   );
 }

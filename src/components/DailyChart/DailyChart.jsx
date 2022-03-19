@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 
-function BarGraph({ data }) {
+function DailyChart({ data }) {
   // console.log('data sessions :', data); //OK
   const barData = data.map((element, index) => {
     return element;
@@ -48,8 +48,8 @@ function BarGraph({ data }) {
   );
 }
 
-BarGraph.propTypes = {
+DailyChart.propTypes = {
   data: PropTypes.array,
 };
 
-export default BarGraph;
+export default DailyChart;
