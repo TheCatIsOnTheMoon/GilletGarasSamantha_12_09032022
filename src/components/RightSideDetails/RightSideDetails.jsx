@@ -1,9 +1,19 @@
 import './style.css';
+import PropTypes from 'prop-types';
 import energy from './assets/energy.svg';
 import chicken from './assets/chicken.svg';
 import apple from './assets/apple.svg';
 import cheeseburger from './assets/cheeseburger.svg';
 
+/**
+ * React component that display a recap of the daily calories, proteines, glucides and lipides of the user.
+ * @component
+ * @param  {number} props User calories
+ * @param  {number} props User proteines
+ * @param  {number} props User glucides
+ * @param  {number} props User lipides
+ *
+ */
 function RightSideDetails({ calories, proteines, glucides, lipides }) {
   return (
     <div id="rightDetails">
@@ -49,4 +59,9 @@ function RightSideDetails({ calories, proteines, glucides, lipides }) {
     </div>
   );
 }
+
+RightSideDetails.propTypes = {
+  data: PropTypes.number,
+};
+
 export default RightSideDetails;

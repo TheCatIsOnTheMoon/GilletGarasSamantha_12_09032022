@@ -9,6 +9,12 @@ import {
   Tooltip,
 } from 'recharts';
 
+/**
+ * React component that display a Line Chart of the user sessions duration of the week.
+ * @component
+ * @param  {array} props User sessions data
+ *
+ */
 function TimesChart({ data }) {
   return (
     <div id="lineChart">
@@ -66,6 +72,11 @@ function TimesChart({ data }) {
   );
 }
 
+/**
+ * It returns a div with a paragraph inside it. The paragraph contains the wsession duration
+ * @param  {} payload of Tooltip element
+ * @returns A div with a paragraph inside.
+ */
 const CustomTooltip = ({ payload }) => {
   if (payload && payload.length) {
     return (
@@ -77,10 +88,6 @@ const CustomTooltip = ({ payload }) => {
   return null;
 };
 
-/* Telling React that the `TimeChart` component
- * will receive one props: `data`
- * that needs to be an array.
- */
 TimesChart.propTypes = {
   data: PropTypes.array,
 };

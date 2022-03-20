@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Hooks/FetchData/FetchData.jsx</title>
+    <title>JSDoc: Source: pages/Dashbord/Dashbord.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Hooks/FetchData/FetchData.jsx</h1>
+    <h1 class="page-title">Source: pages/Dashbord/Dashbord.jsx</h1>
 
     
 
@@ -26,44 +26,47 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from 'react';
+            <pre class="prettyprint source linenums"><code>import './style.css';
+
+import Profile from '../../components/Profile/Profile';
+import Daily from '../../components/Daily/Daily';
+import Times from '../../components/Times/Times';
+import Perfs from '../../components/Perfs/Perfs';
+import Score from '../../components/Score/Score';
+import RightSide from '../../components/RightSide/RightSide';
 
 /**
- * If the URL is defined, fetch the data from the URL and set the data to the response
- * @param {String} URL The url of the wanted data
- * @returns {Object}  {data, isDataLoading, isError}
+ * React component that contains the dashbord of the user.
+ * @component
+ * @returns The `Dashbord` component is returning the `Profile`, `Daily`, `Times`, `Perfs`, `Score`, `RightSide` components.
  */
+function Dashbord() {
+  return (
+    &lt;>
+      &lt;div id="content_box">
+        &lt;Profile />
 
-export function useFetch(URL) {
-  const [data, setData] = useState({});
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+        &lt;div id="info_box">
+          &lt;div id="details_box">
+            &lt;Daily />
 
-  useEffect(() => {
-    if (!URL) return;
+            &lt;div id="graphs_box">
+              &lt;Times />
+              &lt;Perfs />
+              &lt;Score />
+            &lt;/div>
+          &lt;/div>
 
-    setLoading(true);
-
-    async function fetchData() {
-      try {
-        const response = await fetch(URL);
-        const data = await response.json();
-
-        setData(data);
-      } catch (err) {
-        console.log(err);
-
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchData();
-  }, [URL]);
-
-  return { isLoading, data, error };
+          &lt;div id="siderecap_box">
+            &lt;RightSide />
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/>
+  );
 }
+
+export default Dashbord;
 </code></pre>
         </article>
     </section>

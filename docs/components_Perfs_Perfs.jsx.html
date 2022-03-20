@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Hooks/FetchData/FetchData.jsx</title>
+    <title>JSDoc: Source: components/Perfs/Perfs.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Hooks/FetchData/FetchData.jsx</h1>
+    <h1 class="page-title">Source: components/Perfs/Perfs.jsx</h1>
 
     
 
@@ -26,44 +26,72 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from 'react';
+            <pre class="prettyprint source linenums"><code>import './style.css';
+import PerfsChart from '../PerfsChart/PerfsChart';
+import { PERF_DATA_URL } from '../../constants';
+import { useFetch } from '../../Hooks/FetchData/FetchData';
 
 /**
- * If the URL is defined, fetch the data from the URL and set the data to the response
- * @param {String} URL The url of the wanted data
- * @returns {Object}  {data, isDataLoading, isError}
+ * It takes the performances data from the API and formats it into a format that the `PerfsChart` can use
+ * @component
+ *
  */
+function Perfs() {
+  const { data, isLoading, error } = useFetch(PERF_DATA_URL);
+  const PERF_DATA = data;
 
-export function useFetch(URL) {
-  const [data, setData] = useState({});
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  if (isLoading) {
+    return &lt;span>Loading ...&lt;/span>;
+  }
+  if (error || !data) {
+    return &lt;span>Error&lt;/span>;
+  }
+  // PERF_DATA &amp;&amp; console.log('PERF_DATA 3 :', PERF_DATA); //OK
 
-  useEffect(() => {
-    if (!URL) return;
+  const perfdata = PERF_DATA.data.data;
+  const perfLabel = PERF_DATA.data.kind;
 
-    setLoading(true);
+  /* Mapping the data to a new object
+   * with the value and the kind
+   * in order to change the numbers values of kind
+   * into their respectives words
+   */
+  const newData = perfdata.map((item) => {
+    return {
+      value: item.value,
+      kind: perfLabel[item.kind],
+    };
+  });
 
-    async function fetchData() {
-      try {
-        const response = await fetch(URL);
-        const data = await response.json();
+  const kindsFRtrad = {
+    cardio: 'Cardio',
+    energy: 'Énergie',
+    endurance: 'Endurance',
+    strength: 'Force',
+    speed: 'Vitesse',
+    intensity: 'Intensité',
+  };
 
-        setData(data);
-      } catch (err) {
-        console.log(err);
+  /* Mapping the newData to a new object
+   * with the value and the kind
+   * in order to change the values of kind
+   * by the FR translation
+   */
+  const newFRData = newData.map((item) => {
+    return {
+      value: item.value,
+      kind: kindsFRtrad[item.kind],
+    };
+  });
 
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchData();
-  }, [URL]);
-
-  return { isLoading, data, error };
+  return (
+    &lt;div id="perfs">
+      &lt;PerfsChart data={newFRData} />
+    &lt;/div>
+  );
 }
+
+export default Perfs;
 </code></pre>
         </article>
     </section>

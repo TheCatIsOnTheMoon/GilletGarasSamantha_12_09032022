@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Hooks/FetchData/FetchData.jsx</title>
+    <title>JSDoc: Source: components/RightSide/RightSide.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Hooks/FetchData/FetchData.jsx</h1>
+    <h1 class="page-title">Source: components/RightSide/RightSide.jsx</h1>
 
     
 
@@ -26,44 +26,41 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from 'react';
+            <pre class="prettyprint source linenums"><code>import './style.css';
+import { MAIN_DATA_URL } from '../../constants';
+import { useFetch } from '../../Hooks/FetchData/FetchData';
+import RightSideDetails from '../RightSideDetails/RightSideDetails';
 
 /**
- * If the URL is defined, fetch the data from the URL and set the data to the response
- * @param {String} URL The url of the wanted data
- * @returns {Object}  {data, isDataLoading, isError}
+ * It takes the main data from the API and formats it into a format that the `RightSideDetails` componant can use
+ * @component
+ *
  */
+function RightSide() {
+  const { data, isLoading, error } = useFetch(MAIN_DATA_URL);
+  const MAIN_DATA = data;
 
-export function useFetch(URL) {
-  const [data, setData] = useState({});
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  if (isLoading) {
+    return &lt;span>Loading ...&lt;/span>;
+  }
+  if (error || !data) {
+    return &lt;span>Error&lt;/span>;
+  }
+  // MAIN_DATA &amp;&amp; console.log('MAIN_DATA 3 :', MAIN_DATA.data.keyData); //OK
 
-  useEffect(() => {
-    if (!URL) return;
-
-    setLoading(true);
-
-    async function fetchData() {
-      try {
-        const response = await fetch(URL);
-        const data = await response.json();
-
-        setData(data);
-      } catch (err) {
-        console.log(err);
-
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchData();
-  }, [URL]);
-
-  return { isLoading, data, error };
+  return (
+    &lt;div id="siderecap">
+      &lt;RightSideDetails
+        calories={MAIN_DATA.data.keyData.calorieCount}
+        proteines={MAIN_DATA.data.keyData.proteinCount}
+        glucides={MAIN_DATA.data.keyData.carbohydrateCount}
+        lipides={MAIN_DATA.data.keyData.lipidCount}
+      />
+    &lt;/div>
+  );
 }
+
+export default RightSide;
 </code></pre>
         </article>
     </section>

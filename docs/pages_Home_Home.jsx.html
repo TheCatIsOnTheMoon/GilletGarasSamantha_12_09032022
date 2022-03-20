@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Hooks/FetchData/FetchData.jsx</title>
+    <title>JSDoc: Source: pages/Home/Home.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Hooks/FetchData/FetchData.jsx</h1>
+    <h1 class="page-title">Source: pages/Home/Home.jsx</h1>
 
     
 
@@ -26,44 +26,31 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from 'react';
+            <pre class="prettyprint source linenums"><code>import './style.css';
+
+import Header from '../../components/Header/Header';
+import LeftSideBar from '../../components/LeftSideBar/LeftSideBar';
+import Dashbord from '../Dashbord/Dashbord';
 
 /**
- * If the URL is defined, fetch the data from the URL and set the data to the response
- * @param {String} URL The url of the wanted data
- * @returns {Object}  {data, isDataLoading, isError}
+ * React component that contains the home page.
+ * @component
+ * @returns The `Home` component is returning the `Header`, `LeftSideBar` and `Dashbord` components.
  */
+function Home() {
+  return (
+    &lt;>
+      &lt;Header />
 
-export function useFetch(URL) {
-  const [data, setData] = useState({});
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    if (!URL) return;
-
-    setLoading(true);
-
-    async function fetchData() {
-      try {
-        const response = await fetch(URL);
-        const data = await response.json();
-
-        setData(data);
-      } catch (err) {
-        console.log(err);
-
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchData();
-  }, [URL]);
-
-  return { isLoading, data, error };
+      &lt;div id="main_box">
+        &lt;LeftSideBar />
+        &lt;Dashbord />
+      &lt;/div>
+    &lt;/>
+  );
 }
+
+export default Home;
 </code></pre>
         </article>
     </section>

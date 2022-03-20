@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Hooks/FetchData/FetchData.jsx</title>
+    <title>JSDoc: Source: components/Profile/Profile.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Hooks/FetchData/FetchData.jsx</h1>
+    <h1 class="page-title">Source: components/Profile/Profile.jsx</h1>
 
     
 
@@ -26,44 +26,39 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from 'react';
+            <pre class="prettyprint source linenums"><code>import './style.css';
+import { MAIN_DATA_URL } from '../../constants';
+import { useFetch } from '../../Hooks/FetchData/FetchData';
+import ProfileContent from '../ProfileContent/ProfileContent';
 
 /**
- * If the URL is defined, fetch the data from the URL and set the data to the response
- * @param {String} URL The url of the wanted data
- * @returns {Object}  {data, isDataLoading, isError}
+ * It takes the main data from the API and formats it into a format that the `ProfileContent` componant can use
+ * @component
+ *
  */
+function Profile() {
+  const { data, isLoading, error } = useFetch(MAIN_DATA_URL);
+  const MAIN_DATA = data;
 
-export function useFetch(URL) {
-  const [data, setData] = useState({});
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  if (isLoading) {
+    return &lt;span>Loading ...&lt;/span>;
+  }
+  if (error || !data) {
+    return &lt;span>Error&lt;/span>;
+  }
+  // MAIN_DATA &amp;&amp; console.log('MAIN_DATA 3 :', MAIN_DATA); //OK
 
-  useEffect(() => {
-    if (!URL) return;
-
-    setLoading(true);
-
-    async function fetchData() {
-      try {
-        const response = await fetch(URL);
-        const data = await response.json();
-
-        setData(data);
-      } catch (err) {
-        console.log(err);
-
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchData();
-  }, [URL]);
-
-  return { isLoading, data, error };
+  return (
+    &lt;div id="hello">
+      &lt;ProfileContent firstName={MAIN_DATA.data.userInfos.firstName} />
+      &lt;p id="hello_congrats">
+        Félicitation ! Vous avez explosé vos objectifs hier 👏
+      &lt;/p>
+    &lt;/div>
+  );
 }
+
+export default Profile;
 </code></pre>
         </article>
     </section>

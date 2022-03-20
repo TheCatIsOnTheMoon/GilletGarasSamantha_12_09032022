@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 /**
  * If the URL is defined, fetch the data from the URL and set the data to the response
- * @param {String} URL
+ * @param {String} URL The url of the wanted data
  * @returns {Object}  {data, isDataLoading, isError}
  */
 

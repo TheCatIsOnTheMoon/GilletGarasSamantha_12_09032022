@@ -40,7 +40,9 @@ If you are working with several versions of NodeJS, we recommend you install nvm
 
 `yarn dev`
 
-If it works you should see "Magic append on port 3000"
+If it works you should see :
+
+> Magic happens on port 3000
 
 ## App Setup
 

@@ -2,6 +2,12 @@ import './style.css';
 import PropTypes from 'prop-types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 
+/**
+ * React component that display a Bar Chart of the daily burn calories and weight of the user.
+ * @component
+ * @param  {array} props User activities data
+ *
+ */
 function DailyChart({ data }) {
   const barData = data.map((element, index) => {
     return element;
@@ -62,6 +68,11 @@ function DailyChart({ data }) {
   );
 }
 
+/**
+ * It returns a div with a paragraph inside it. The paragraph contains the weight and the calories
+ * @param  {} payload of Tooltip element
+ * @returns A div with a paragraph inside.
+ */
 const CustomTooltip = ({ payload }) => {
   if (payload && payload.length) {
     return (

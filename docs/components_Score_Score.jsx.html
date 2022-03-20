@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Hooks/FetchData/FetchData.jsx</title>
+    <title>JSDoc: Source: components/Score/Score.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Hooks/FetchData/FetchData.jsx</h1>
+    <h1 class="page-title">Source: components/Score/Score.jsx</h1>
 
     
 
@@ -26,44 +26,40 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from 'react';
+            <pre class="prettyprint source linenums"><code>import './style.css';
+import ScoreChart from '../ScoreChart/ScoreChart';
+import { MAIN_DATA_URL } from '../../constants';
+import { useFetch } from '../../Hooks/FetchData/FetchData';
 
 /**
- * If the URL is defined, fetch the data from the URL and set the data to the response
- * @param {String} URL The url of the wanted data
- * @returns {Object}  {data, isDataLoading, isError}
+ * It takes the main data from the API and take the `score` data into a format that the `ScoreChart` can use
+ * @component
+ *
  */
+function Score() {
+  const { data, isLoading, error } = useFetch(MAIN_DATA_URL);
+  const MAIN_DATA = data;
 
-export function useFetch(URL) {
-  const [data, setData] = useState({});
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  if (isLoading) {
+    return &lt;span>Loading ...&lt;/span>;
+  }
+  if (error || !data) {
+    return &lt;span>Error&lt;/span>;
+  }
+  // MAIN_DATA &amp;&amp; console.log('MAIN_DATA 3 :', MAIN_DATA); //OK
 
-  useEffect(() => {
-    if (!URL) return;
+  /* Checking if the `todayScore` exists in the `MAIN_DATA` object. If it does, it will use that data.
+  If it doesn't, it will use the `score` data. */
+  const scoreData = MAIN_DATA.data.todayScore || MAIN_DATA.data.score;
 
-    setLoading(true);
-
-    async function fetchData() {
-      try {
-        const response = await fetch(URL);
-        const data = await response.json();
-
-        setData(data);
-      } catch (err) {
-        console.log(err);
-
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchData();
-  }, [URL]);
-
-  return { isLoading, data, error };
+  return (
+    &lt;div id="score">
+      &lt;ScoreChart score={scoreData} />
+    &lt;/div>
+  );
 }
+
+export default Score;
 </code></pre>
         </article>
     </section>

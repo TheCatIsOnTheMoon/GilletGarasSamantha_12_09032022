@@ -8,6 +8,12 @@ import {
   PolarRadiusAxis,
 } from 'recharts';
 
+/**
+ * React component that display a Radar Chart of the user performances.
+ * @component
+ * @param  {array} props User activities data
+ *
+ */
 function PerfsChart({ data }) {
   return (
     <RadarChart width={230} height={230} data={data}>
@@ -29,10 +35,6 @@ function PerfsChart({ data }) {
   );
 }
 
-/* Telling React that the `PerfsChart` component
- * will receive one props: `data`
- * that needs to be an array.
- */
 PerfsChart.propTypes = {
   data: PropTypes.array,
 };

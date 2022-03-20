@@ -3,6 +3,11 @@ import { MAIN_DATA_URL } from '../../constants';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
 import ProfileContent from '../ProfileContent/ProfileContent';
 
+/**
+ * It takes the main data from the API and formats it into a format that the `ProfileContent` componant can use
+ * @component
+ *
+ */
 function Profile() {
   const { data, isLoading, error } = useFetch(MAIN_DATA_URL);
   const MAIN_DATA = data;

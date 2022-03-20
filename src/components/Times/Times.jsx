@@ -3,6 +3,11 @@ import { SESSIONS_DATA_URL } from '../../constants';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
 import TimesChart from '../TimesChart/TimesChart';
 
+/**
+ * It takes the sessions data from the API and formats it into a format that the `TimesChart` can use
+ * @component
+ *
+ */
 function Times() {
   const { data, isLoading, error } = useFetch(SESSIONS_DATA_URL);
   const SESSIONS_DATA = data;
@@ -21,7 +26,8 @@ function Times() {
 
   /* Mapping the data to a new object
    * with the day and the sessionLength
-   * in order to change the values of day
+   * in order to change the values of day.
+   * from number to letters.
    */
   const newData = sessionsData.map((item) => {
     return {

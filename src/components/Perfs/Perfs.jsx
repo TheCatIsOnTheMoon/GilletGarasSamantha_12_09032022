@@ -3,6 +3,11 @@ import PerfsChart from '../PerfsChart/PerfsChart';
 import { PERF_DATA_URL } from '../../constants';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
 
+/**
+ * It takes the performances data from the API and formats it into a format that the `PerfsChart` can use
+ * @component
+ *
+ */
 function Perfs() {
   const { data, isLoading, error } = useFetch(PERF_DATA_URL);
   const PERF_DATA = data;
@@ -20,7 +25,8 @@ function Perfs() {
 
   /* Mapping the data to a new object
    * with the value and the kind
-   * in order to change the values of kind
+   * in order to change the numbers values of kind
+   * into their respectives words
    */
   const newData = perfdata.map((item) => {
     return {

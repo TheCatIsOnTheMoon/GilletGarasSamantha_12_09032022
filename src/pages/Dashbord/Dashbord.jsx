@@ -7,6 +7,11 @@ import Perfs from '../../components/Perfs/Perfs';
 import Score from '../../components/Score/Score';
 import RightSide from '../../components/RightSide/RightSide';
 
+/**
+ * React component that contains the dashbord of the user.
+ * @component
+ * @returns The `Dashbord` component is returning the `Profile`, `Daily`, `Times`, `Perfs`, `Score`, `RightSide` components.
+ */
 function Dashbord() {
   return (
     <>

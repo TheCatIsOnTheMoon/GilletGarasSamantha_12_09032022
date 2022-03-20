@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Hooks/FetchData/FetchData.jsx</title>
+    <title>JSDoc: Source: components/LeftSideBar/LeftSideBar.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Hooks/FetchData/FetchData.jsx</h1>
+    <h1 class="page-title">Source: components/LeftSideBar/LeftSideBar.jsx</h1>
 
     
 
@@ -26,44 +26,42 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from 'react';
+            <pre class="prettyprint source linenums"><code>import './style.css';
+
+import selfcare from './assets/selfcare.svg';
+import swim from './assets/swim.svg';
+import bike from './assets/bike.svg';
+import weight from './assets/weight.svg';
 
 /**
- * If the URL is defined, fetch the data from the URL and set the data to the response
- * @param {String} URL The url of the wanted data
- * @returns {Object}  {data, isDataLoading, isError}
+ * It renders the left navigation bar of the application : 4 icons.
+ * @component
  */
-
-export function useFetch(URL) {
-  const [data, setData] = useState({});
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    if (!URL) return;
-
-    setLoading(true);
-
-    async function fetchData() {
-      try {
-        const response = await fetch(URL);
-        const data = await response.json();
-
-        setData(data);
-      } catch (err) {
-        console.log(err);
-
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchData();
-  }, [URL]);
-
-  return { isLoading, data, error };
+function LeftSideBar() {
+  return (
+    &lt;div id="side_bar">
+      &lt;ul id="side_nav">
+        &lt;li>
+          &lt;img src={selfcare} alt="selfcare icon" />
+        &lt;/li>
+        &lt;li>
+          &lt;img src={swim} alt="swim icon" />
+        &lt;/li>
+        &lt;li>
+          &lt;img src={bike} alt="bike icon" />
+        &lt;/li>
+        &lt;li>
+          &lt;img src={weight} alt="weight icon" />
+        &lt;/li>
+      &lt;/ul>
+      &lt;div id="side_copyright">
+        &lt;p>Copiryght, SportSee 2020&lt;/p>
+      &lt;/div>
+    &lt;/div>
+  );
 }
+
+export default LeftSideBar;
 </code></pre>
         </article>
     </section>

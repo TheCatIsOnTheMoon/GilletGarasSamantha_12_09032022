@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Hooks/FetchData/FetchData.jsx</title>
+    <title>JSDoc: Class: Home</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,56 +17,147 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Hooks/FetchData/FetchData.jsx</h1>
+    <h1 class="page-title">Class: Home</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from 'react';
+        <h2><span class="attribs"><span class="type-signature"></span></span>Home<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+    
+</header>
 
-/**
- * If the URL is defined, fetch the data from the URL and set the data to the response
- * @param {String} URL The url of the wanted data
- * @returns {Object}  {data, isDataLoading, isError}
- */
+<article>
+    <div class="container-overview">
+    
+        
 
-export function useFetch(URL) {
-  const [data, setData] = useState({});
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+    
 
-  useEffect(() => {
-    if (!URL) return;
+    
+    <h4 class="name" id="Home"><span class="type-signature"></span>new Home<span class="signature">()</span><span class="type-signature"></span></h4>
+    
 
-    setLoading(true);
+    
 
-    async function fetchData() {
-      try {
-        const response = await fetch(URL);
-        const data = await response.json();
 
-        setData(data);
-      } catch (err) {
-        console.log(err);
 
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
+<div class="description">
+    <p>React component that contains the home page.</p>
+</div>
 
-    fetchData();
-  }, [URL]);
 
-  return { isLoading, data, error };
-}
-</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="pages_Home_Home.jsx.html">pages/Home/Home.jsx</a>, <a href="pages_Home_Home.jsx.html#line12">line 12</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The <code>Home</code> component is returning the <code>Header</code>, <code>LeftSideBar</code> and <code>Dashbord</code> components.</p>
+</div>
+
+
+
+    
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

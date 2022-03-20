@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Hooks/FetchData/FetchData.jsx</title>
+    <title>JSDoc: Source: components/ScoreChart/ScoreChart.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Hooks/FetchData/FetchData.jsx</h1>
+    <h1 class="page-title">Source: components/ScoreChart/ScoreChart.jsx</h1>
 
     
 
@@ -26,44 +26,71 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from 'react';
+            <pre class="prettyprint source linenums"><code>import './style.css';
+import PropTypes from 'prop-types';
+import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 
 /**
- * If the URL is defined, fetch the data from the URL and set the data to the response
- * @param {String} URL The url of the wanted data
- * @returns {Object}  {data, isDataLoading, isError}
+ * React component that display a Radial Bar Chart of the daily score of the user.
+ * @component
+ * @param  {number} props User today score
+ *
  */
+function ScoreChart({ score }) {
+  /* Creating the data for the chart. */
+  const data = [
+    {
+      name: 'baseScore',
+      score: 1 - score,
+      fill: '#FBFBFB',
+    },
+    {
+      name: 'userScore',
+      score: score,
+      fill: '#E60000',
+    },
+  ];
 
-export function useFetch(URL) {
-  const [data, setData] = useState({});
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    if (!URL) return;
-
-    setLoading(true);
-
-    async function fetchData() {
-      try {
-        const response = await fetch(URL);
-        const data = await response.json();
-
-        setData(data);
-      } catch (err) {
-        console.log(err);
-
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchData();
-  }, [URL]);
-
-  return { isLoading, data, error };
+  return (
+    &lt;div id="score_graph">
+      &lt;ResponsiveContainer width="98%" height={250}>
+        &lt;RadialBarChart
+          cx="50%"
+          cy="50%"
+          data={data}
+          innerRadius="65%"
+          outerRadius="85%"
+          startAngle={90}
+          endAngle={450}
+          barSize={10}
+        >
+          &lt;RadialBar
+            minAngle={15}
+            background
+            clockwise={false}
+            dataKey="score"
+            cornerRadius={50}
+          />
+        &lt;/RadialBarChart>
+      &lt;/ResponsiveContainer>
+      &lt;p id="score_title">Score&lt;/p>
+      &lt;div className="center">
+        &lt;p id="score_legend_nbr">{score * 100}%&lt;/p>
+        &lt;p id="score_legend_text">
+          &lt;br />
+          de votre &lt;br />
+          objectif
+        &lt;/p>
+      &lt;/div>
+    &lt;/div>
+  );
 }
+
+ScoreChart.propTypes = {
+  score: PropTypes.number,
+};
+
+export default ScoreChart;
 </code></pre>
         </article>
     </section>

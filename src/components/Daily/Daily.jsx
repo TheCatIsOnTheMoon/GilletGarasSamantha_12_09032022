@@ -4,12 +4,9 @@ import { useFetch } from '../../Hooks/FetchData/FetchData';
 import DailyChart from '../DailyChart/DailyChart';
 
 /**
- * It takes the data from the API and formats it into a format that the chart can use
+ * It takes the activities data from the API and formats it into a format that the `DailyChart` can use
  * @component
- * @example
- * return (
- *   <Daily />
- * )
+ *
  */
 function Daily() {
   const { data, isLoading, error } = useFetch(ACTIVITY_DATA_URL);

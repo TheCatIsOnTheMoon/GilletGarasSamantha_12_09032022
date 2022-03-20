@@ -1,6 +1,10 @@
 import './style.css';
 import logo from './logo.svg';
 
+/**
+ * It renders the header of the application.
+ * @component
+ */
 function Header() {
   return (
     <header>

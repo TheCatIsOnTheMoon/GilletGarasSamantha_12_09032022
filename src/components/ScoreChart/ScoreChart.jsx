@@ -2,8 +2,14 @@ import './style.css';
 import PropTypes from 'prop-types';
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 
+/**
+ * React component that display a Radial Bar Chart of the daily score of the user.
+ * @component
+ * @param  {number} props User today score
+ *
+ */
 function ScoreChart({ score }) {
-  // console.log(score); // ok
+  /* Creating the data for the chart. */
   const data = [
     {
       name: 'baseScore',
@@ -52,10 +58,6 @@ function ScoreChart({ score }) {
   );
 }
 
-/* Telling React that the `ScoreChart` component
- * will receive one props: `score`
- * that needs to be a number.
- */
 ScoreChart.propTypes = {
   score: PropTypes.number,
 };
