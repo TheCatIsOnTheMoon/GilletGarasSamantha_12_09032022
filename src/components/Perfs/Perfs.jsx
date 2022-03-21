@@ -3,6 +3,7 @@ import { BASE_URL } from '../../constants/BASE_URL';
 import GetUserID from '../../Hooks/GetUserID/GetUserID';
 import PerfsChart from '../PerfsChart/PerfsChart';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
+import Loader from '../Loader/Loader';
 
 /**
  * It takes the performances data from the API and formats it into a format that the `PerfsChart` can use
@@ -16,7 +17,7 @@ function Perfs() {
   const PERF_DATA = data;
 
   if (isLoading) {
-    return <span>Loading ...</span>;
+    return <Loader />;
   }
   if (error || !data) {
     return <span>Error</span>;

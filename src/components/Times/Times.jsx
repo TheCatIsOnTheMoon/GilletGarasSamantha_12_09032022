@@ -3,6 +3,7 @@ import { BASE_URL } from '../../constants/BASE_URL';
 import GetUserID from '../../Hooks/GetUserID/GetUserID';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
 import TimesChart from '../TimesChart/TimesChart';
+import Loader from '../Loader/Loader';
 
 /**
  * It takes the sessions data from the API and formats it into a format that the `TimesChart` can use
@@ -16,7 +17,7 @@ function Times() {
   const SESSIONS_DATA = data;
 
   if (isLoading) {
-    return <span>Loading ...</span>;
+    return <Loader />;
   }
   if (error || !data) {
     return <span>Error</span>;

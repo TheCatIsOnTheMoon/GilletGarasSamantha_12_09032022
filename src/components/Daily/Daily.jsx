@@ -3,6 +3,7 @@ import { BASE_URL } from '../../constants/BASE_URL';
 import GetUserID from '../../Hooks/GetUserID/GetUserID';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
 import DailyChart from '../DailyChart/DailyChart';
+import Loader from '../Loader/Loader';
 
 /**
  * It takes the activities data from the API and formats it into a format that the `DailyChart` can use
@@ -15,7 +16,7 @@ function Daily() {
   );
 
   if (isLoading) {
-    return <span>Loading ...</span>;
+    return <Loader />;
   }
   if (error || !data) {
     return <span>Error</span>;

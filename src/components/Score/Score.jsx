@@ -3,6 +3,7 @@ import { BASE_URL } from '../../constants/BASE_URL';
 import GetUserID from '../../Hooks/GetUserID/GetUserID';
 import ScoreChart from '../ScoreChart/ScoreChart';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
+import Loader from '../Loader/Loader';
 
 /**
  * It takes the main data from the API and take the `score` data into a format that the `ScoreChart` can use
@@ -14,7 +15,7 @@ function Score() {
   const MAIN_DATA = data;
 
   if (isLoading) {
-    return <span>Loading ...</span>;
+    return <Loader />;
   }
   if (error || !data) {
     return <span>Error</span>;

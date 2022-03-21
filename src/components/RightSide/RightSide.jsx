@@ -3,6 +3,7 @@ import { BASE_URL } from '../../constants/BASE_URL';
 import GetUserID from '../../Hooks/GetUserID/GetUserID';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
 import RightSideDetails from '../RightSideDetails/RightSideDetails';
+import Loader from '../Loader/Loader';
 
 /**
  * It takes the main data from the API and formats it into a format that the `RightSideDetails` componant can use
@@ -14,7 +15,7 @@ function RightSide() {
   const MAIN_DATA = data;
 
   if (isLoading) {
-    return <span>Loading ...</span>;
+    return <Loader />;
   }
   if (error || !data) {
     return <span>Error</span>;
