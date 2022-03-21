@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 import './style.css';
 
+/**
+ * It renders an Error page with a link to go back
+ * @component
+ */
 function Error() {
   return (
     <div className="error_page">

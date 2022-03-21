@@ -16,7 +16,6 @@ import AppRouter from './routes/Routes';
 
 /**
  * Contains the base of the App and the routes.
- * @component
  * @returns Return the `Header`, `LeftSideBar` and `Home` components.
  */
 ReactDOM.render(

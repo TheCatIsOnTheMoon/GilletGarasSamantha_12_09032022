@@ -47,18 +47,22 @@
 <blockquote>
 <p>Project 12 of the Front-end OpenClassrooms formation.</p>
 </blockquote>
+<blockquote>
+<p><a href="https://thecatisonthemoon.github.io/GilletGarasSamantha_12_09032022/"><em>SportSee Documentation</em></a>.</p>
+</blockquote>
 <h2>Table of Contents</h2>
 <ul>
 <li><a href="#technologies-used">Technologies Used</a></li>
 <li><a href="#prerequisites">Prerequisites</a></li>
 <li><a href="#backend-setup">BackEnd Setup</a></li>
 <li><a href="#app-setup">App Setup</a></li>
-<li><a href="#project-status">Project Status</a></li>
+<li><a href="#use-the-app">Use the App</a></li>
 </ul>
 <h2>Technologies Used</h2>
 <ul>
 <li>JavaScript</li>
 <li>React</li>
+<li>React Router</li>
 <li>Prop-Types</li>
 <li>Recharts</li>
 </ul>
@@ -70,15 +74,12 @@
 <p>If you are working with several versions of NodeJS, we recommend you install nvm. This tool will allow you to easily manage your NodeJS versions.</p>
 <h2>BackEnd Setup</h2>
 <ul>
-<li>First, you have to set the Backend :</li>
+<li>clone or download this repository of the backend on your computer.</li>
 </ul>
 <blockquote>
 <p>Backend : <a href="https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard"><em>https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard</em></a>.</p>
 </blockquote>
 <ul>
-<li>
-<p>clone or downlaod this repository of the backend on your computer.</p>
-</li>
 <li>
 <p>open the file with VSCode.</p>
 </li>
@@ -88,25 +89,27 @@
 </ul>
 <p><code>yarn</code></p>
 <ul>
-<li>Finally, run the micro API by using this command :</li>
+<li>Run the micro API by using this command :</li>
 </ul>
 <p><code>yarn dev</code></p>
-<p>If it works you should see :</p>
+<ul>
+<li>You should see this message in the terminal :</li>
+</ul>
 <blockquote>
 <p>Magic happens on port 3000</p>
 </blockquote>
 <h2>App Setup</h2>
 <ul>
 <li>
-<p>Now, clone or downlaod this repository on your computer.</p>
+<p>Clone or download this repository on your computer.</p>
 </li>
 <li>
 <p>Run the App in the browser by using this command :</p>
 </li>
 </ul>
-<p><code>yarn start</code> or <code>npm start</code></p>
+<p><code>npm start</code></p>
 <ul>
-<li>you should see this message :</li>
+<li>You should see this messages in the terminal :</li>
 </ul>
 <blockquote>
 <p>? Something is already running on port 3000.     Probably:
@@ -117,10 +120,15 @@ in /home/sam/Github/sportsee-backend</p>
 <p>Would you like to run the app on another port instead? › (Y/n)</p>
 </blockquote>
 <ul>
-<li>Enter Y and the App will appear in your browser</li>
+<li>Accept and the App will appear in your browser</li>
 </ul>
-<h2>Project Status</h2>
-<p>Project is: <em>in progress</em>.</p></article>
+<h2>Use the App</h2>
+<ul>
+<li>To see different user pages you can change the user number in the address bar. For now, only 2 users are available : 12 or 18.</li>
+</ul>
+<blockquote>
+<p>exemple : http://localhost:3001/dashboard/18</p>
+</blockquote></article>
     </section>
 
 
@@ -131,13 +139,13 @@ in /home/sam/Github/sportsee-backend</p>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Daily.html">Daily</a></li><li><a href="DailyChart.html">DailyChart</a></li><li><a href="Dashbord.html">Dashbord</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="LeftSideBar.html">LeftSideBar</a></li><li><a href="Perfs.html">Perfs</a></li><li><a href="PerfsChart.html">PerfsChart</a></li><li><a href="Profile.html">Profile</a></li><li><a href="ProfileContent.html">ProfileContent</a></li><li><a href="RightSide.html">RightSide</a></li><li><a href="RightSideDetails.html">RightSideDetails</a></li><li><a href="Score.html">Score</a></li><li><a href="ScoreChart.html">ScoreChart</a></li><li><a href="Times.html">Times</a></li><li><a href="TimesChart.html">TimesChart</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#useFetch">useFetch</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AppRouter.html">AppRouter</a></li><li><a href="Daily.html">Daily</a></li><li><a href="DailyChart.html">DailyChart</a></li><li><a href="Error.html">Error</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="LeftSideBar.html">LeftSideBar</a></li><li><a href="Loader.html">Loader</a></li><li><a href="Perfs.html">Perfs</a></li><li><a href="PerfsChart.html">PerfsChart</a></li><li><a href="Profile.html">Profile</a></li><li><a href="ProfileContent.html">ProfileContent</a></li><li><a href="RightSide.html">RightSide</a></li><li><a href="RightSideDetails.html">RightSideDetails</a></li><li><a href="Score.html">Score</a></li><li><a href="ScoreChart.html">ScoreChart</a></li><li><a href="Times.html">Times</a></li><li><a href="TimesChart.html">TimesChart</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#GetUserID">GetUserID</a></li><li><a href="global.html#useFetch">useFetch</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sun Mar 20 2022 16:01:21 GMT+0100 (Central European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Mon Mar 21 2022 15:27:10 GMT+0100 (Central European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

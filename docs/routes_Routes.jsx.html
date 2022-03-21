@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/LeftSideBar/LeftSideBar.jsx</title>
+    <title>JSDoc: Source: routes/Routes.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/LeftSideBar/LeftSideBar.jsx</h1>
+    <h1 class="page-title">Source: routes/Routes.jsx</h1>
 
     
 
@@ -26,42 +26,37 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import './style.css';
+            <pre class="prettyprint source linenums"><code>import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 
-import selfcare from './assets/selfcare.svg';
-import swim from './assets/swim.svg';
-import bike from './assets/bike.svg';
-import weight from './assets/weight.svg';
+//pages
+import Home from '../pages/Home/Home';
+import Error from '../pages/Error/Error';
 
 /**
- * It renders the left navigation bar of the application : 4 icons.
+ * The AppRouter function returns a Router component that contains the differents Routes and path of the App.
  * @component
+ * @returns A router component.
  */
-function LeftSideBar() {
+function AppRouter() {
   return (
-    &lt;div id="side_bar">
-      &lt;ul id="side_nav">
-        &lt;li>
-          &lt;img src={selfcare} alt="selfcare icon" />
-        &lt;/li>
-        &lt;li>
-          &lt;img src={swim} alt="swim icon" />
-        &lt;/li>
-        &lt;li>
-          &lt;img src={bike} alt="bike icon" />
-        &lt;/li>
-        &lt;li>
-          &lt;img src={weight} alt="weight icon" />
-        &lt;/li>
-      &lt;/ul>
-      &lt;div id="side_copyright">
-        &lt;p>Copiryght, SportSee 2020&lt;/p>
-      &lt;/div>
-    &lt;/div>
+    &lt;Router>
+      &lt;main>
+        &lt;Routes>
+          &lt;Route exact path="/" element={&lt;Navigate to="/dashboard/12" />} />
+          &lt;Route path="/dashboard/:userId" element={&lt;Home />} />
+          &lt;Route path="*" element={&lt;Error />} />
+        &lt;/Routes>
+      &lt;/main>
+    &lt;/Router>
   );
 }
 
-export default LeftSideBar;
+export default AppRouter;
 </code></pre>
         </article>
     </section>

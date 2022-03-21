@@ -9,6 +9,11 @@ import {
 import Home from '../pages/Home/Home';
 import Error from '../pages/Error/Error';
 
+/**
+ * The AppRouter function returns a Router component that contains the differents Routes and path of the App.
+ * @component
+ * @returns A router component.
+ */
 function AppRouter() {
   return (
     <Router>

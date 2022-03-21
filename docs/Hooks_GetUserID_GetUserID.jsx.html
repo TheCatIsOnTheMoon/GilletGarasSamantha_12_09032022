@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/LeftSideBar/LeftSideBar.jsx</title>
+    <title>JSDoc: Source: Hooks/GetUserID/GetUserID.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/LeftSideBar/LeftSideBar.jsx</h1>
+    <h1 class="page-title">Source: Hooks/GetUserID/GetUserID.jsx</h1>
 
     
 
@@ -26,42 +26,19 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import './style.css';
-
-import selfcare from './assets/selfcare.svg';
-import swim from './assets/swim.svg';
-import bike from './assets/bike.svg';
-import weight from './assets/weight.svg';
+            <pre class="prettyprint source linenums"><code>import { useLocation } from 'react-router-dom';
 
 /**
- * It renders the left navigation bar of the application : 4 icons.
- * @component
+ * Given the URL, return the user ID from the URL
+ * @returns The userID is being returned.
  */
-function LeftSideBar() {
-  return (
-    &lt;div id="side_bar">
-      &lt;ul id="side_nav">
-        &lt;li>
-          &lt;img src={selfcare} alt="selfcare icon" />
-        &lt;/li>
-        &lt;li>
-          &lt;img src={swim} alt="swim icon" />
-        &lt;/li>
-        &lt;li>
-          &lt;img src={bike} alt="bike icon" />
-        &lt;/li>
-        &lt;li>
-          &lt;img src={weight} alt="weight icon" />
-        &lt;/li>
-      &lt;/ul>
-      &lt;div id="side_copyright">
-        &lt;p>Copiryght, SportSee 2020&lt;/p>
-      &lt;/div>
-    &lt;/div>
-  );
+function GetUserID() {
+  const sampleLocation = useLocation();
+  const userID = sampleLocation.pathname.substring(11);
+  return userID;
 }
 
-export default LeftSideBar;
+export default GetUserID;
 </code></pre>
         </article>
     </section>

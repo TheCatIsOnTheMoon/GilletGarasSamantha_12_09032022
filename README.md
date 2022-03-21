@@ -9,11 +9,12 @@
 * [Prerequisites](#prerequisites)
 * [BackEnd Setup](#backend-setup)
 * [App Setup](#app-setup)
-* [Project Status](#project-status)
+* [Use the App](#use-the-app)
 
 ## Technologies Used
 - JavaScript
 - React
+- React Router
 - Prop-Types
 - Recharts
 
@@ -26,11 +27,9 @@ If you are working with several versions of NodeJS, we recommend you install nvm
 
 ## BackEnd Setup
 
-- First, you have to set the Backend :
+- clone or download this repository of the backend on your computer.
 
 > Backend : [_https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard_](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard).
-
-- clone or downlaod this repository of the backend on your computer.
 
 - open the file with VSCode.
 
@@ -38,23 +37,23 @@ If you are working with several versions of NodeJS, we recommend you install nvm
 
 `yarn`
 
-- Finally, run the micro API by using this command :
+- Run the micro API by using this command :
 
 `yarn dev`
 
-If it works you should see :
+- You should see this message in the terminal :
 
 > Magic happens on port 3000
 
 ## App Setup
 
-- Now, clone or downlaod this repository on your computer.
+- Clone or download this repository on your computer.
 
 - Run the App in the browser by using this command :
 
-`yarn start` or `npm start`
+`npm start`
 
-- you should see this message :
+- You should see this messages in the terminal :
 
 >  ? Something is already running on port 3000.     Probably:
   /home/sam/.nvm/versions/node/v12.18.0/bin/node app/index.js (pid 2948)
@@ -62,7 +61,10 @@ If it works you should see :
   
  >  Would you like to run the app on another port instead? › (Y/n)
 
-- Enter Y and the App will appear in your browser
+- Accept and the App will appear in your browser
 
-## Project Status
-Project is: _in progress_.
+## Use the App
+
+- To see different user pages you can change the user number in the address bar. For now, only 2 users are available : 12 or 18.
+
+> exemple : http://localhost:3001/dashboard/18
