@@ -1,5 +1,6 @@
 import './style.css';
-import { ACTIVITY_DATA_URL } from '../../constants';
+import { BASE_URL } from '../../constants/BASE_URL';
+import GetUserID from '../../Hooks/GetUserID/GetUserID';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
 import DailyChart from '../DailyChart/DailyChart';
 
@@ -9,8 +10,9 @@ import DailyChart from '../DailyChart/DailyChart';
  *
  */
 function Daily() {
-  const { data, isLoading, error } = useFetch(ACTIVITY_DATA_URL);
-  const ACTIVITY_DATA = data;
+  const { data, isLoading, error } = useFetch(
+    BASE_URL + `${GetUserID()}/activity`
+  );
 
   if (isLoading) {
     return <span>Loading ...</span>;
@@ -18,6 +20,8 @@ function Daily() {
   if (error || !data) {
     return <span>Error</span>;
   }
+
+  const ACTIVITY_DATA = data;
   // ACTIVITY_DATA && console.log('ACTIVITY_DATA 3 :', ACTIVITY_DATA); //OK
   const activityData = ACTIVITY_DATA.data.sessions;
 

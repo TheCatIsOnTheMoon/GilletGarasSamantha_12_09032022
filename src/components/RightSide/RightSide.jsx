@@ -1,5 +1,6 @@
 import './style.css';
-import { MAIN_DATA_URL } from '../../constants';
+import { BASE_URL } from '../../constants/BASE_URL';
+import GetUserID from '../../Hooks/GetUserID/GetUserID';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
 import RightSideDetails from '../RightSideDetails/RightSideDetails';
 
@@ -9,7 +10,7 @@ import RightSideDetails from '../RightSideDetails/RightSideDetails';
  *
  */
 function RightSide() {
-  const { data, isLoading, error } = useFetch(MAIN_DATA_URL);
+  const { data, isLoading, error } = useFetch(BASE_URL + `${GetUserID()}`);
   const MAIN_DATA = data;
 
   if (isLoading) {

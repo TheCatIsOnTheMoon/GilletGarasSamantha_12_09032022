@@ -23,3 +23,6 @@ body {
     margin: auto;
 } */
 
+#main_box {
+    display: flex;
+}

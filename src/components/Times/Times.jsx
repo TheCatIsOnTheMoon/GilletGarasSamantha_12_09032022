@@ -1,5 +1,6 @@
 import './style.css';
-import { SESSIONS_DATA_URL } from '../../constants';
+import { BASE_URL } from '../../constants/BASE_URL';
+import GetUserID from '../../Hooks/GetUserID/GetUserID';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
 import TimesChart from '../TimesChart/TimesChart';
 
@@ -9,7 +10,9 @@ import TimesChart from '../TimesChart/TimesChart';
  *
  */
 function Times() {
-  const { data, isLoading, error } = useFetch(SESSIONS_DATA_URL);
+  const { data, isLoading, error } = useFetch(
+    BASE_URL + `${GetUserID()}/average-sessions`
+  );
   const SESSIONS_DATA = data;
 
   if (isLoading) {

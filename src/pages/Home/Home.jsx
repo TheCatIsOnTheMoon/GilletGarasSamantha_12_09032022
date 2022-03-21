@@ -1,22 +1,38 @@
 import './style.css';
 
-import Header from '../../components/Header/Header';
-import LeftSideBar from '../../components/LeftSideBar/LeftSideBar';
-import Dashbord from '../Dashbord/Dashbord';
+import Profile from '../../components/Profile/Profile';
+import Daily from '../../components/Daily/Daily';
+import Times from '../../components/Times/Times';
+import Perfs from '../../components/Perfs/Perfs';
+import Score from '../../components/Score/Score';
+import RightSide from '../../components/RightSide/RightSide';
 
 /**
- * React component that contains the home page.
+ * React component that contains the dashbord of the user.
  * @component
- * @returns The `Home` component is returning the `Header`, `LeftSideBar` and `Dashbord` components.
+ * @returns The `Home` page is returning the `Profile`, `Daily`, `Times`, `Perfs`, `Score`, `RightSide` components.
  */
 function Home() {
   return (
     <>
-      <Header />
+      <div id="content_box">
+        <Profile />
 
-      <div id="main_box">
-        <LeftSideBar />
-        <Dashbord />
+        <div id="info_box">
+          <div id="details_box">
+            <Daily />
+
+            <div id="graphs_box">
+              <Times />
+              <Perfs />
+              <Score />
+            </div>
+          </div>
+
+          <div id="siderecap_box">
+            <RightSide />
+          </div>
+        </div>
       </div>
     </>
   );
