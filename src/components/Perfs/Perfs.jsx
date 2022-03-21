@@ -14,7 +14,6 @@ function Perfs() {
   const { data, isLoading, error } = useFetch(
     BASE_URL + `${GetUserID()}/performance`
   );
-  const PERF_DATA = data;
 
   if (isLoading) {
     return <Loader />;
@@ -22,20 +21,19 @@ function Perfs() {
   if (error || !data) {
     return <span>Error</span>;
   }
-  // PERF_DATA && console.log('PERF_DATA 3 :', PERF_DATA); //OK
 
-  const perfdata = PERF_DATA.data.data;
-  const perfLabel = PERF_DATA.data.kind;
+  const PERF_DATA = data.data.data;
+  const PERF_DATA_LABELS = data.data.kind;
 
   /* Mapping the data to a new object
    * with the value and the kind
    * in order to change the numbers values of kind
    * into their respectives words
    */
-  const newData = perfdata.map((item) => {
+  const NEW_PERF_DATA = PERF_DATA.map((item) => {
     return {
       value: item.value,
-      kind: perfLabel[item.kind],
+      kind: PERF_DATA_LABELS[item.kind],
     };
   });
 
@@ -53,7 +51,7 @@ function Perfs() {
    * in order to change the values of kind
    * by the FR translation
    */
-  const newFRData = newData.map((item) => {
+  const NEW_PERF_DATA_FR = NEW_PERF_DATA.map((item) => {
     return {
       value: item.value,
       kind: kindsFRtrad[item.kind],
@@ -62,7 +60,7 @@ function Perfs() {
 
   return (
     <div id="perfs">
-      <PerfsChart data={newFRData} />
+      <PerfsChart data={NEW_PERF_DATA_FR} />
     </div>
   );
 }

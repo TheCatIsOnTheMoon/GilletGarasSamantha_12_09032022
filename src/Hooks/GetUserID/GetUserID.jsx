@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 
 /**
- * Given a URL, return the user ID from the URL
+ * Given the URL, return the user ID from the URL
  * @returns The userID is being returned.
  */
 function GetUserID() {

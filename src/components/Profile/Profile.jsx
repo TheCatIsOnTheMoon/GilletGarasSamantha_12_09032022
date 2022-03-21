@@ -12,7 +12,6 @@ import Loader from '../Loader/Loader';
  */
 function Profile() {
   const { data, isLoading, error } = useFetch(BASE_URL + `${GetUserID()}`);
-  const MAIN_DATA = data;
 
   if (isLoading) {
     return <Loader />;
@@ -20,11 +19,12 @@ function Profile() {
   if (error || !data) {
     return <span>Error</span>;
   }
-  // MAIN_DATA && console.log('MAIN_DATA 3 :', MAIN_DATA); //OK
+
+  const FIRST_NAME = data.data.userInfos.firstName;
 
   return (
     <div id="hello">
-      <ProfileContent firstName={MAIN_DATA.data.userInfos.firstName} />
+      <ProfileContent firstName={FIRST_NAME} />
       <p id="hello_congrats">
         Félicitation ! Vous avez explosé vos objectifs hier 👏
       </p>

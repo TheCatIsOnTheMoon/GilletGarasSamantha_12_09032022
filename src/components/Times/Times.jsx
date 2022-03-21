@@ -14,7 +14,6 @@ function Times() {
   const { data, isLoading, error } = useFetch(
     BASE_URL + `${GetUserID()}/average-sessions`
   );
-  const SESSIONS_DATA = data;
 
   if (isLoading) {
     return <Loader />;
@@ -22,27 +21,25 @@ function Times() {
   if (error || !data) {
     return <span>Error</span>;
   }
-  // SESSIONS_DATA &&
-  //   console.log('SESSIONS_DATA 3 :', SESSIONS_DATA.data.sessions); //OK
 
-  const sessionsData = SESSIONS_DATA.data.sessions;
-  const sessionsLabel = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+  const SESSIONS_DATA = data.data.sessions;
+  const SESSIONS_DATA_LABELS = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
   /* Mapping the data to a new object
    * with the day and the sessionLength
    * in order to change the values of day.
    * from number to letters.
    */
-  const newData = sessionsData.map((item) => {
+  const NEW_SESSIONS_DATA = SESSIONS_DATA.map((item) => {
     return {
-      day: sessionsLabel[item.day - 1],
+      day: SESSIONS_DATA_LABELS[item.day - 1],
       sessionLength: item.sessionLength,
     };
   });
 
   return (
     <div id="times">
-      <TimesChart data={newData} />
+      <TimesChart data={NEW_SESSIONS_DATA} />
     </div>
   );
 }

@@ -22,9 +22,7 @@ function Daily() {
     return <span>Error</span>;
   }
 
-  const ACTIVITY_DATA = data;
-  // ACTIVITY_DATA && console.log('ACTIVITY_DATA 3 :', ACTIVITY_DATA); //OK
-  const activityData = ACTIVITY_DATA.data.sessions;
+  const ACTIVITY_DATA = data.data.sessions;
 
   /**
    * Given a date string, return a new date string with the month and day swapped
@@ -36,7 +34,7 @@ function Daily() {
   }
 
   /* Creating a new array with the same structure as the original array, but with the day value formatted. */
-  const newData = activityData.map((item) => {
+  const NEW_ACTIVITY_DATA = ACTIVITY_DATA.map((item) => {
     return {
       day: formatDate(item.day),
       kilogram: item.kilogram,
@@ -56,7 +54,7 @@ function Daily() {
         </div>
       </div>
 
-      <DailyChart data={newData} />
+      <DailyChart data={NEW_ACTIVITY_DATA} />
     </div>
   );
 }
