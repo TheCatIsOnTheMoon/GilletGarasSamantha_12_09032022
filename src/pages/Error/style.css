@@ -1,0 +1,22 @@
+.error_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 180px;
+}
+
+.error_description {
+  font-size: 18px;
+  text-align: center;
+  padding-bottom: 133px;
+}
+
+.error_return {
+  text-decoration: underline;
+  font-size: 1rem;
+  line-height: 17px;
+  padding-left: 10px;
+  margin: auto;
+  text-align: center;
+}

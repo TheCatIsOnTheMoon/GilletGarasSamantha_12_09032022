@@ -7,7 +7,7 @@ import {
 
 //pages
 import Home from '../pages/Home/Home';
-// import Error from '../pages/Error/Error';
+import Error from '../pages/Error/Error';
 
 function AppRouter() {
   return (
@@ -16,7 +16,7 @@ function AppRouter() {
         <Routes>
           <Route exact path="/" element={<Navigate to="/dashboard/12" />} />
           <Route path="/dashboard/:userId" element={<Home />} />
-          {/* <Route path="*" element={<Error />} /> */}
+          <Route path="*" element={<Error />} />
         </Routes>
       </main>
     </Router>
