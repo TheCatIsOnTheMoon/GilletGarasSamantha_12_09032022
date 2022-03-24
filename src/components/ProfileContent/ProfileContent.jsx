@@ -9,9 +9,14 @@ import PropTypes from 'prop-types';
  */
 function ProfileContent({ firstName }) {
   return (
-    <p id="hello_name">
-      Bonjour <span>{firstName}</span>
-    </p>
+    <div id="hello">
+      <p id="hello_name">
+        Bonjour <span>{firstName}</span>
+      </p>
+      <p id="hello_congrats">
+        Félicitation ! Vous avez explosé vos objectifs hier 👏
+      </p>
+    </div>
   );
 }
 

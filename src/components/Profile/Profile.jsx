@@ -1,4 +1,3 @@
-import './style.css';
 import { BASE_URL } from '../../constants/BASE_URL';
 import GetUserID from '../../Hooks/GetUserID/GetUserID';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
@@ -22,14 +21,7 @@ function Profile() {
 
   const FIRST_NAME = data.data.userInfos.firstName;
 
-  return (
-    <div id="hello">
-      <ProfileContent firstName={FIRST_NAME} />
-      <p id="hello_congrats">
-        Félicitation ! Vous avez explosé vos objectifs hier 👏
-      </p>
-    </div>
-  );
+  return <ProfileContent firstName={FIRST_NAME} />;
 }
 
 export default Profile;
