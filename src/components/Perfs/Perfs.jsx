@@ -58,9 +58,12 @@ function Perfs() {
     };
   });
 
+  /* Reversing the order of the array. */
+  const NEW_PERF_DATA_FR_AND_REVERSE = NEW_PERF_DATA_FR.reverse();
+
   return (
     <div id="perfs">
-      <PerfsChart data={NEW_PERF_DATA_FR} />
+      <PerfsChart data={NEW_PERF_DATA_FR_AND_REVERSE} />
     </div>
   );
 }
