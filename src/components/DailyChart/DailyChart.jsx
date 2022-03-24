@@ -70,7 +70,7 @@ function DailyChart({ data }) {
 
 /**
  * It returns a div with a paragraph inside it. The paragraph contains the weight and the calories
- * @param  {} payload of Tooltip element
+ * @param  {array} payload of Tooltip element
  * @returns A div with a paragraph inside.
  */
 const CustomTooltip = ({ payload }) => {
@@ -89,6 +89,10 @@ const CustomTooltip = ({ payload }) => {
 
 DailyChart.propTypes = {
   data: PropTypes.array,
+};
+
+CustomTooltip.propTypes = {
+  payload: PropTypes.array,
 };
 
 export default DailyChart;

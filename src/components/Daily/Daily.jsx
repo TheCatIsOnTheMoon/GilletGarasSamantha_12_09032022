@@ -26,6 +26,7 @@ function Daily() {
 
   /**
    * Given a date string, return a new date string with the month and day swapped
+   * @param  {string} date format YYYY-MM-DD
    * @returns The date without the leading zeros.
    */
   function formatDate(date) {

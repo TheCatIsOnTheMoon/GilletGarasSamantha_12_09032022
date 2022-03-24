@@ -74,7 +74,7 @@ function TimesChart({ data }) {
 
 /**
  * It returns a div with a paragraph inside it. The paragraph contains the wsession duration
- * @param  {} payload of Tooltip element
+ * @param  {array} payload of Tooltip element
  * @returns A div with a paragraph inside.
  */
 const CustomTooltip = ({ payload }) => {
@@ -89,6 +89,10 @@ const CustomTooltip = ({ payload }) => {
 };
 
 TimesChart.propTypes = {
+  data: PropTypes.array,
+};
+
+CustomTooltip.propTypes = {
   data: PropTypes.array,
 };
 

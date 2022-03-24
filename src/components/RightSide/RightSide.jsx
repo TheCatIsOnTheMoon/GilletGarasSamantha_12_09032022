@@ -1,4 +1,3 @@
-import './style.css';
 import { BASE_URL } from '../../constants/BASE_URL';
 import GetUserID from '../../Hooks/GetUserID/GetUserID';
 import { useFetch } from '../../Hooks/FetchData/FetchData';
@@ -23,14 +22,12 @@ function RightSide() {
   const KEY_DATA = data.data.keyData;
 
   return (
-    <div id="siderecap">
-      <RightSideDetails
-        calories={KEY_DATA.calorieCount}
-        proteines={KEY_DATA.proteinCount}
-        glucides={KEY_DATA.carbohydrateCount}
-        lipides={KEY_DATA.lipidCount}
-      />
-    </div>
+    <RightSideDetails
+      calories={KEY_DATA.calorieCount}
+      proteines={KEY_DATA.proteinCount}
+      glucides={KEY_DATA.carbohydrateCount}
+      lipides={KEY_DATA.lipidCount}
+    />
   );
 }
 

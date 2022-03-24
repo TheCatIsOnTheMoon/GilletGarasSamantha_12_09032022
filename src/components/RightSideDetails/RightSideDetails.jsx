@@ -61,7 +61,10 @@ function RightSideDetails({ calories, proteines, glucides, lipides }) {
 }
 
 RightSideDetails.propTypes = {
-  data: PropTypes.number,
+  calories: PropTypes.number,
+  proteines: PropTypes.number,
+  glucides: PropTypes.number,
+  lipides: PropTypes.number,
 };
 
 export default RightSideDetails;
