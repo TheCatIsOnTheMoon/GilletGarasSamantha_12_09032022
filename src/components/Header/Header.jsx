@@ -9,10 +9,14 @@ function Header() {
   return (
     <header>
       <img src={logo} alt="SportSee logo" id="logo" />
-      <p>Accueil</p>
-      <p>Profil</p>
-      <p>Réglage</p>
-      <p>Communauté</p>
+      <nav>
+        <ul>
+          <li>Accueil</li>
+          <li>Profil</li>
+          <li>Réglage</li>
+          <li>Communauté</li>
+        </ul>
+      </nav>
     </header>
   );
 }

@@ -1,7 +1,7 @@
 header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+
   height: 91px;
 
   color: white;
@@ -16,7 +16,16 @@ header {
   margin: 18px 40px 12px 28px;
 }
 
-header p {
+header nav ul {
+  margin-left: 100px;
+  width: 70vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+header nav ul li {
   font-size: 24px;
-  padding: auto 40px;
+  line-height: 24px;
+  margin: auto 40px;
+  cursor: pointer;
 }

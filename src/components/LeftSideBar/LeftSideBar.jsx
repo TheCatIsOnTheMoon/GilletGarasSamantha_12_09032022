@@ -12,20 +12,20 @@ import weight from './assets/weight.svg';
 function LeftSideBar() {
   return (
     <div id="side_bar">
-      <ul id="side_nav">
-        <li>
+      <nav id="side_nav">
+        <button>
           <img src={selfcare} alt="selfcare icon" />
-        </li>
-        <li>
+        </button>
+        <button>
           <img src={swim} alt="swim icon" />
-        </li>
-        <li>
+        </button>
+        <button>
           <img src={bike} alt="bike icon" />
-        </li>
-        <li>
+        </button>
+        <button>
           <img src={weight} alt="weight icon" />
-        </li>
-      </ul>
+        </button>
+      </nav>
       <div id="side_copyright">
         <p>Copiryght, SportSee 2020</p>
       </div>
