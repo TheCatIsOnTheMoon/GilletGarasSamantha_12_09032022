@@ -51,11 +51,13 @@ function TimesChart({ data }) {
       &lt;/p>
       &lt;LineChart
         width={258}
-        height={258}
+        height={263}
         data={data}
         margin={{
-          top: 40,
-          bottom: 5,
+          top: 0,
+          bottom: 15,
+          left: 0,
+          right: 0,
         }}
       >
         &lt;CartesianGrid strokeDasharray="0 1" />
@@ -63,28 +65,19 @@ function TimesChart({ data }) {
           dataKey="day"
           tickLine={false}
           axisLine={false}
-          padding={{ left: 10, right: 10 }}
-          style={{ fontSize: 12, fontWeight: 500 }}
-          stroke="white"
-          opacity={0.7}
-          dy={3}
-          dx={0}
+          interval="preserveStartEnd"
+          tick={&lt;CustomXAxis />}
         />
         &lt;YAxis
           dataKey="sessionLength"
           hide={true}
-          domain={['dataMin', 'dataMax + 10']}
+          domain={['dataMin', 'dataMax + 30']}
         />
 
         &lt;Tooltip
           payload={data.sessionLength}
           content={&lt;CustomTooltip />}
-          offset={30}
-          cursor={{
-            stroke: 'black',
-            strokeOpacity: 0.2,
-            strokeWidth: 70,
-          }}
+          cursor={&lt;CustomCursor />}
         />
         &lt;Line
           type="monotone"
@@ -92,7 +85,7 @@ function TimesChart({ data }) {
           strokeWidth={2}
           stroke="white"
           dot={false}
-          activeDot={{ r: 6 }}
+          activeDot={{ r: 7 }}
           opacity={0.7}
         />
       &lt;/LineChart>
@@ -101,9 +94,35 @@ function TimesChart({ data }) {
 }
 
 /**
- * It returns a div with a paragraph inside it. The paragraph contains the wsession duration
+ * It returns a custom X Axis
+ * @param  {number} x position of the X Axis
+ * @param  {number} y position of the X Axis
+ * @param  {object} payload of X Axis element
+ * @returns A custom Cursor.
+ *
+ */
+const CustomXAxis = ({ x, y, payload }) => {
+  // custom X axis exemple : https://recharts.org/en-US/examples/CustomizedLabelLineChart
+  return (
+    &lt;g transform={`translate(${x},${y})`}>
+      &lt;text
+        dy={17}
+        style={{ fontSize: 12, fontWeight: 500 }}
+        opacity={0.6}
+        textAnchor="middle"
+        fill="white"
+      >
+        {payload.value}
+      &lt;/text>
+    &lt;/g>
+  );
+};
+
+/**
+ * It returns a custom Tooltip containing the session duration.
  * @param  {array} payload of Tooltip element
- * @returns A div with a paragraph inside.
+ * @returns A custom Tooltip.
+ *
  */
 const CustomTooltip = ({ payload }) => {
   if (payload &amp;&amp; payload.length) {
@@ -116,12 +135,45 @@ const CustomTooltip = ({ payload }) => {
   return null;
 };
 
+/**
+ * It returns a custom Cursor
+ * highlighting form the cursor position to the right-end of the chart.
+ * @param  {array} points positions x and y of Cursor element
+ * @param  {number} height graph height
+ * @returns A custom Cursor.
+ *
+ */
+const CustomCursor = ({ points, height }) => {
+  return (
+    &lt;rect
+      x={points[0].x}
+      y="0"
+      height={height + 99}
+      // {height + 99} in order to fill the entire height of the chart not just the line graph
+      width="100%"
+      fill="black"
+      opacity={0.2}
+    >&lt;/rect>
+  );
+};
+
 TimesChart.propTypes = {
   data: PropTypes.array,
 };
 
+CustomXAxis.propTypes = {
+  x: PropTypes.number,
+  y: PropTypes.number,
+  payload: PropTypes.object,
+};
+
 CustomTooltip.propTypes = {
-  data: PropTypes.array,
+  payload: PropTypes.array,
+};
+
+CustomCursor.propTypes = {
+  points: PropTypes.array,
+  height: PropTypes.number,
 };
 
 export default TimesChart;
@@ -135,13 +187,13 @@ export default TimesChart;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AppRouter.html">AppRouter</a></li><li><a href="Daily.html">Daily</a></li><li><a href="DailyChart.html">DailyChart</a></li><li><a href="Error.html">Error</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="LeftSideBar.html">LeftSideBar</a></li><li><a href="Loader.html">Loader</a></li><li><a href="Perfs.html">Perfs</a></li><li><a href="PerfsChart.html">PerfsChart</a></li><li><a href="Profile.html">Profile</a></li><li><a href="ProfileContent.html">ProfileContent</a></li><li><a href="RightSide.html">RightSide</a></li><li><a href="RightSideDetails.html">RightSideDetails</a></li><li><a href="Score.html">Score</a></li><li><a href="ScoreChart.html">ScoreChart</a></li><li><a href="Times.html">Times</a></li><li><a href="TimesChart.html">TimesChart</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#GetUserID">GetUserID</a></li><li><a href="global.html#useFetch">useFetch</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AppRouter.html">AppRouter</a></li><li><a href="Daily.html">Daily</a></li><li><a href="DailyChart.html">DailyChart</a></li><li><a href="Error.html">Error</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="LeftSideBar.html">LeftSideBar</a></li><li><a href="Loader.html">Loader</a></li><li><a href="Perfs.html">Perfs</a></li><li><a href="PerfsChart.html">PerfsChart</a></li><li><a href="Profile.html">Profile</a></li><li><a href="ProfileContent.html">ProfileContent</a></li><li><a href="RightSide.html">RightSide</a></li><li><a href="RightSideDetails.html">RightSideDetails</a></li><li><a href="Score.html">Score</a></li><li><a href="ScoreChart.html">ScoreChart</a></li><li><a href="Times.html">Times</a></li><li><a href="TimesChart.html">TimesChart</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CustomCursor">CustomCursor</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#CustomXAxis">CustomXAxis</a></li><li><a href="global.html#GetUserID">GetUserID</a></li><li><a href="global.html#useFetch">useFetch</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Fri Mar 25 2022 16:18:05 GMT+0100 (Central European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Fri Mar 25 2022 19:25:47 GMT+0100 (Central European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>
