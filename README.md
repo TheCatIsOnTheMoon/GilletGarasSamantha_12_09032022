@@ -49,17 +49,19 @@ If you are working with several versions of NodeJS, we recommend you install nvm
 
 - Clone or download this repository on your computer.
 
+- Install the dependencies by using this command :
+
+`npm install`
+
 - Run the App in the browser by using this command :
 
 `npm start`
 
 - You should see this messages in the terminal :
 
->  ? Something is already running on port 3000.     Probably:
-  /home/sam/.nvm/versions/node/v12.18.0/bin/node app/index.js (pid 2948)
-  in /home/sam/Github/sportsee-backend
-  
- >  Would you like to run the app on another port instead? › (Y/n)
+>  ? Something is already running on port 3000. [...]
+>  
+>  Would you like to run the app on another port instead? › (Y/n)
 
 - Accept and the App will appear in your browser
 
