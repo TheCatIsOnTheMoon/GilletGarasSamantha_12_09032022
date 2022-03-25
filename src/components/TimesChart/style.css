@@ -24,5 +24,12 @@
   font-size: 8px;
   line-height: 24px;
   text-align: center;
-  color: #000000;
+  color: black;
+}
+
+#cursor_stroke {
+  height: 50px;
+  width: 50px;
+  color: black;
+  opacity: 0.5;
 }

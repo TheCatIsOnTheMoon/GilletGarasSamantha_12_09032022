@@ -23,11 +23,13 @@ function TimesChart({ data }) {
       </p>
       <LineChart
         width={258}
-        height={258}
+        height={263}
         data={data}
         margin={{
-          top: 40,
-          bottom: 5,
+          top: 0,
+          bottom: 15,
+          left: 0,
+          right: 0,
         }}
       >
         <CartesianGrid strokeDasharray="0 1" />
@@ -35,28 +37,19 @@ function TimesChart({ data }) {
           dataKey="day"
           tickLine={false}
           axisLine={false}
-          padding={{ left: 10, right: 10 }}
-          style={{ fontSize: 12, fontWeight: 500 }}
-          stroke="white"
-          opacity={0.7}
-          dy={3}
-          dx={0}
+          interval="preserveStartEnd"
+          tick={<CustomXAxis />}
         />
         <YAxis
           dataKey="sessionLength"
           hide={true}
-          domain={['dataMin', 'dataMax + 10']}
+          domain={['dataMin', 'dataMax + 30']}
         />
 
         <Tooltip
           payload={data.sessionLength}
           content={<CustomTooltip />}
-          offset={30}
-          cursor={{
-            stroke: 'black',
-            strokeOpacity: 0.2,
-            strokeWidth: 70,
-          }}
+          cursor={<CustomCursor />}
         />
         <Line
           type="monotone"
@@ -64,7 +57,7 @@ function TimesChart({ data }) {
           strokeWidth={2}
           stroke="white"
           dot={false}
-          activeDot={{ r: 6 }}
+          activeDot={{ r: 7 }}
           opacity={0.7}
         />
       </LineChart>
@@ -73,9 +66,35 @@ function TimesChart({ data }) {
 }
 
 /**
- * It returns a div with a paragraph inside it. The paragraph contains the wsession duration
+ * It returns a custom X Axis
+ * @param  {number} x position of the X Axis
+ * @param  {number} y position of the X Axis
+ * @param  {object} payload of X Axis element
+ * @returns A custom Cursor.
+ *
+ */
+const CustomXAxis = ({ x, y, payload }) => {
+  // custom X axis exemple : https://recharts.org/en-US/examples/CustomizedLabelLineChart
+  return (
+    <g transform={`translate(${x},${y})`}>
+      <text
+        dy={17}
+        style={{ fontSize: 12, fontWeight: 500 }}
+        opacity={0.6}
+        textAnchor="middle"
+        fill="white"
+      >
+        {payload.value}
+      </text>
+    </g>
+  );
+};
+
+/**
+ * It returns a custom Tooltip containing the session duration.
  * @param  {array} payload of Tooltip element
- * @returns A div with a paragraph inside.
+ * @returns A custom Tooltip.
+ *
  */
 const CustomTooltip = ({ payload }) => {
   if (payload && payload.length) {
@@ -88,12 +107,45 @@ const CustomTooltip = ({ payload }) => {
   return null;
 };
 
+/**
+ * It returns a custom Cursor
+ * highlighting form the cursor position to the right-end of the chart.
+ * @param  {array} points positions x and y of Cursor element
+ * @param  {number} height graph height
+ * @returns A custom Cursor.
+ *
+ */
+const CustomCursor = ({ points, height }) => {
+  return (
+    <rect
+      x={points[0].x}
+      y="0"
+      height={height + 99}
+      // {height + 99} in order to fill the entire height of the chart not just the line graph
+      width="100%"
+      fill="black"
+      opacity={0.2}
+    ></rect>
+  );
+};
+
 TimesChart.propTypes = {
   data: PropTypes.array,
 };
 
+CustomXAxis.propTypes = {
+  x: PropTypes.number,
+  y: PropTypes.number,
+  payload: PropTypes.object,
+};
+
 CustomTooltip.propTypes = {
-  data: PropTypes.array,
+  payload: PropTypes.array,
+};
+
+CustomCursor.propTypes = {
+  points: PropTypes.array,
+  height: PropTypes.number,
 };
 
 export default TimesChart;
